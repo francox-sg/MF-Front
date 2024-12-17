@@ -1,0 +1,57 @@
+.componentContainer{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    align-items: center;
+}
+.titulo{
+    position: fixed;
+    top: 0px;
+    right: 5px;
+}
+
+.gridContainer{
+    width: 80%;
+    height: 80px;
+    margin-top: 15px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 30px);
+    justify-items: end;
+}
+
+.gridName{
+    grid-column: 1/2;
+    grid-row: 1/2;
+}
+
+.gridLastname{
+    grid-column: 2/3;
+    grid-row: 1/2;
+}
+
+.gridDni{
+    grid-column: 1/2;
+    grid-row: 2/3;
+}
+
+.gridContainer label{
+    margin-right: 5px;
+}
+
+input{
+    height: 1.25rem;
+    width: 100px;
+    background-color: grey; 
+    border:1px solid rgb(0, 0, 0);  /* Borde: grosor, trazo y color */
+    border-radius: 5px;               /* Borde: radio */
+    outline:1;                        /* BordeExterior: Activacion de Highligth */
+    color:white;                    /* Texto: Color */
+    transition: width 1s ease-in-out;
+}
+
+input:focus{                           /*Seleccion*/
+    background-color: lightblue; 
+    width: 150px;
+}

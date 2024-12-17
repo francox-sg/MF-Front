@@ -1,0 +1,16 @@
+.patientContainer{
+    width: 100% - 15px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    
+    margin: 15px 10px;
+    border: 1px solid black;
+    border-radius: 10px;
+
+    font-size: 1rem;
+}
+
+.patientContainer:hover{
+    border: 1px solid rgb(255, 0, 0);
+}

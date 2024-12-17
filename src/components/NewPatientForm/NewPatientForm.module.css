@@ -1,0 +1,125 @@
+
+.modalContainer{
+    width: 70%;
+    height: 300px;
+    position: fixed;
+
+    left: 15%;
+    top: 18vh;
+
+    border: 1px solid black;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 1px 1px 50px black;
+
+    background-color: lightblue;
+}
+.cerrar{
+    position: absolute;
+    right: 0px;
+    margin: 10px;
+}
+
+.titulo{
+    margin-bottom: 30px;
+    
+    text-align: center;
+
+}
+
+.componentContainer{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    align-items: center;
+}
+
+
+.gridContainer{
+    width: 80%;
+    margin: 15px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(3, 60px);
+    justify-items: end;
+}
+
+.gridName{
+    grid-column: 1/2;
+    grid-row: 1/2;
+}
+
+.gridLastname{
+    grid-column: 2/3;
+    grid-row: 1/2;
+}
+
+.gridDni{
+    grid-column: 3/4;
+    grid-row: 1/2;
+}
+
+.gridBirth{
+    grid-column: 4/5;
+    grid-row: 1/2;
+    display: flex;
+}
+
+.gridSocial_security{
+    grid-column: 3/4;
+    grid-row: 2/3;
+}
+
+.gridSocial_security_number{
+    grid-column: 4/5;
+    grid-row: 2/3;
+}
+
+.gridGender{
+    grid-column: 1/2;
+    grid-row: 2/3;
+}
+
+.gridPhone{
+    grid-column: 2/3;
+    grid-row: 3/4;
+}
+
+.grideEmail{
+    grid-column: 1/2;
+    grid-row: 3/4;
+}
+
+.gridAddress{
+    grid-column: 3/4;
+    grid-row: 3/4;
+}
+
+.gridContainer label{
+    margin-right: 5px;
+}
+
+.inputs{
+    height: 1.25rem;
+    width: 120px;
+    background-color: rgb(211, 208, 208); 
+    border:1px solid rgb(0, 0, 0);  /* Borde: grosor, trazo y color */
+    border-radius: 5px;               /* Borde: radio */
+    outline:1;                        /* BordeExterior: Activacion de Highligth */
+    color:white;                    /* Texto: Color */
+    transition: width 1s ease-in-out;
+    text-align: center;
+}
+
+input:focus{                           /*Seleccion*/
+    background-color: lightblue; 
+    width: 200px;
+}
+
+.btnAgregar{
+    width: 12%;
+    position: absolute;
+    bottom: 0px;
+    left: 44%;
+}

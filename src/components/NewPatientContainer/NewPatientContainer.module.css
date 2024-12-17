@@ -1,0 +1,50 @@
+.componentContainer{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    align-items: center;
+}
+.titulo{
+    position: fixed;
+    top: 0px;
+    right: 5px;
+}
+/* 
+.gridContainer{
+    width: 80%;
+    height: 80px;
+    margin-top: 15px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 30px);
+    justify-items: end;
+}
+
+.gridName{
+    grid-column: 1/2;
+    grid-row: 1/2;
+
+}
+
+.gridLastname{
+    grid-column: 2/3;
+    grid-row: 1/2;
+}
+
+.gridDni{
+    grid-column: 1/2;
+    grid-row: 2/3;
+}
+
+.gridContainer label{
+    margin-right: 5px;
+}
+ */
+.showPacientes{
+    background-color: grey;
+    width: 80%;
+    height: 500px;
+    border-radius: 15px;
+}
+
