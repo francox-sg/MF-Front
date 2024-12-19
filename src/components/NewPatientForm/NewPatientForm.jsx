@@ -1,6 +1,5 @@
 import classes from './NewPatientForm.module.css'
 import { useForm } from 'react-hook-form'
-//import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 
 
@@ -74,69 +73,71 @@ const NewPatientForm = ({handleButtonClick})=>{
             <div className={classes.cerrar} onClick={handleButtonClick} >Cerrar</div>
             <h1 className={classes.titulo}>Agregar Paciente</h1>
             <form onSubmit={handleSubmit(agregarPaciente)} className={classes.gridContainer}>
-    
-                    <div className={classes.gridName}>
-                        <label htmlFor="">Nombre*</label>
-                        <input className={classes.inputs} type="text" placeholder='Nombre' {...register("name", {required: true, minLength: 2})} />
-                        {
-                            errors.name?.type === "required" && (
-                                <p>Ingrese un Nombre</p>
-                            )
-                        }
-                    </div>
-                    <div className={classes.gridLastname}>
-                        <label htmlFor="">Apellido*</label>
-                        <input className={classes.inputs} type="text" placeholder='Apellido' {...register("lastname", {required: true, minLength: 2})} />
-                        {
-                            errors.lastname?.type === "required" && (
-                                <p>Ingrese un Apellido</p>
-                            )
-                        }
-                    </div>
-                    <div className={classes.gridDni}>
-                        <label htmlFor="">DNI*</label>
-                        <input className={classes.inputs} type="text" placeholder='DNI' {...register("dni", {required: true, minLength: 5})} />
-                        {
-                            errors.dni?.type === "required" && (
-                                <p>Ingrese un DNI</p>
-                            )
-                        }
-                    </div>
-                    <div className={classes.gridBirth}>
-                        <label htmlFor="">Nacimiento</label>
-                        <input className={classes.inputs} type="text" placeholder='DD/MM/AAAA' {...register("birth")} />
-                    </div>
-                    <div className={classes.gridSocial_security}>
-                        <label htmlFor="">Obra Social</label>
-                        <input className={classes.inputs} type="text" placeholder='Obra Social' {...register("social_security")} />
-                    </div>
-                    <div className={classes.gridSocial_security_number}>
-                        <label htmlFor="">Num. Afiliado</label>
-                        <input className={classes.inputs} type="text" placeholder='# Afiliado' {...register("social_security_number")} />
-                    </div>
-                    <div className={classes.gridGender}>
-                        <label htmlFor="">Genero</label>
-                        <input className={classes.inputs} type="text" placeholder='Genero' {...register("gender")} />
-                    </div>
-                    <div className={classes.gridPhone}>
-                        <label htmlFor="">Telefono</label>
-                        <input className={classes.inputs} type="text" placeholder='Telefono' {...register("phone")} />
-                    </div>
-                    <div className={classes.grideEmail}>
-                        <label htmlFor="">Email</label>
-                        <input className={classes.inputs} type="text" placeholder='Email@MF.com' {...register("email",{pattern: /^[^\s@]+@[^\s@]+\.[^\s@]+$/i })} />
-                        {
-                            errors.email?.type === "pattern" && (watch("email") != "") && (
-                                <p>Ingrese un email validao</p>
-                            )
-                        }
-                    </div>
-                    <div className={classes.gridAddress}>
-                        <label htmlFor="">Direccion</label>
-                        <input className={classes.inputs} type="text" placeholder='Direccion' {...register("address")} />
-                    </div>
-                    
-                    <button type='submit' className={classes.btnAgregar} >Agregar</button>
+                <h2 className={classes.datosBasicosTitle}>Datos Basicos</h2>
+                <h2 className={classes.obraSocialTitle}>Informacion de Obra Socal</h2>
+                <h2 className={classes.contactoTitle}>Contacto</h2>
+                <div className={classes.gridName}>
+                    <label htmlFor="">Nombre*</label>
+                    <input className={classes.inputs} type="text" placeholder='' {...register("name", {required: true, minLength: 2})} />
+                    {
+                        errors.name?.type === "required" && (
+                            <p>Ingrese un Nombre</p>
+                        )
+                    }
+                </div>
+                <div className={classes.gridLastname}>
+                    <label htmlFor="">Apellido*</label>
+                    <input className={classes.inputs} type="text" placeholder='' {...register("lastname", {required: true, minLength: 2})} />
+                    {
+                        errors.lastname?.type === "required" && (
+                            <p>Ingrese un Apellido</p>
+                        )
+                    }
+                </div>
+                <div className={classes.gridDni}>
+                    <label htmlFor="">DNI*</label>
+                    <input className={classes.inputs} type="text" placeholder='' {...register("dni", {required: true, minLength: 5})} />
+                    {
+                        errors.dni?.type === "required" && (
+                            <p>Ingrese un DNI</p>
+                        )
+                    }
+                </div>
+                <div className={classes.gridBirth}>
+                    <label htmlFor="">Nacimiento</label>
+                    <input className={classes.inputs} type="text" placeholder='DD/MM/AAAA' {...register("birth")} />
+                </div>
+                <div className={classes.gridSocial_security}>
+                    <label htmlFor="">Obra Social</label>
+                    <input className={classes.inputs} type="text" placeholder='' {...register("social_security")} />
+                </div>
+                <div className={classes.gridSocial_security_number}>
+                    <label htmlFor="">Num. Afiliado</label>
+                    <input className={classes.inputs} type="text" placeholder='' {...register("social_security_number")} />
+                </div>
+                <div className={classes.gridGender}>
+                    <label htmlFor="">Genero</label>
+                    <input className={classes.inputs} type="text" placeholder='' {...register("gender")} />
+                </div>
+                <div className={classes.gridPhone}>
+                    <label htmlFor="">Telefono</label>
+                    <input className={classes.inputs} type="text" placeholder='' {...register("phone")} />
+                </div>
+                <div className={classes.grideEmail}>
+                    <label htmlFor="">Email</label>
+                    <input className={classes.inputs} type="text" placeholder='Email@MF.com' {...register("email",{pattern: /^[^\s@]+@[^\s@]+\.[^\s@]+$/i })} />
+                    {
+                        errors.email?.type === "pattern" && (watch("email") != "") && (
+                            <p>Ingrese un email validao</p>
+                        )
+                    }
+                </div>
+                <div className={classes.gridAddress}>
+                    <label htmlFor="">Direccion</label>
+                    <input className={classes.inputs} type="text" placeholder='' {...register("address")} />
+                </div>
+                
+                <button type='submit' className={classes.btnAgregar} >Agregar</button>
             </form>
         </div>
     )

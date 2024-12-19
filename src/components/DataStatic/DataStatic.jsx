@@ -8,7 +8,7 @@ const DataStatic = ({patient})=>{
  */
     
     
-    console.log("PACIENTE: ",patient.gender);
+    //console.log("PACIENTE: ",patient.gender);
     
 /*     const handleButtonClick = ()=>{
         //navigate('/NuevoPaciente')

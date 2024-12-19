@@ -16,7 +16,7 @@ const PatientsContainer = ()=>{
         })
         .then((resp)=> resp.json())
         .then((response)=>{
-            console.log(response.data);
+            //console.log(response.data);
             
             setPatients(response.data)
             }

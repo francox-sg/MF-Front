@@ -19,12 +19,20 @@ const ClinicalHistoryContainer = ()=>{
                 <div className={classes.showitems} >
 
                     {
-                    clinicalHistory.map((item)=>{
-                        return (
-                            <Item key={item.id} {...item}  />
-                        )
-                    })
+                    clinicalHistory != -1  // Clinical History = -1 es que no hay Historia clinica
+                    
+                    ?
+
+                        clinicalHistory.map((item)=>{
+                            return (
+                                <Item key={item.id} {...item}  />
+                            )
+                        })
+                    
+                    :
+                            <p>Historia Clinica Vacia</p>
                     }
+
                 </div>
                     <CircleButton action="+" handleAction = {handleButtonClick} position= {{left: "50%", bottom: "-15px"}} />
                 {

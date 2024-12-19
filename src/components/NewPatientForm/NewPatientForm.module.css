@@ -1,19 +1,26 @@
 
 .modalContainer{
-    width: 70%;
-    height: 300px;
+    width: 1200px;
+    height: 550px;
     position: fixed;
 
     left: 15%;
-    top: 18vh;
+    top: 100px;
 
-    border: 1px solid black;
+    /* border: 1px solid black; */
     border-radius: 15px;
     overflow: hidden;
-    box-shadow: 1px 1px 50px black;
+    box-shadow: 15px 15px  50px black;
 
-    background-color: lightblue;
+    /* background-color: rgb(2, 87, 116); */
+    background-image: url("../../assets/ADN4.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+
+    color: rgb(209, 208, 208);
 }
+
 .cerrar{
     position: absolute;
     right: 0px;
@@ -21,8 +28,7 @@
 }
 
 .titulo{
-    margin-bottom: 30px;
-    
+    margin: 10px;
     text-align: center;
 
 }
@@ -37,74 +43,131 @@
 
 
 .gridContainer{
-    width: 80%;
-    margin: 15px;
+    width: 65%;
+    margin-left: 15px;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: repeat(3, 60px);
-    justify-items: end;
+    grid-template-rows: repeat(7, 60px);
+    justify-items: center;
+    align-items: center;
+}
+
+
+/* ------------------------------ Datos Basicos ----------------------------- */
+.datosBasicosTitle{
+    grid-column: 1/5;
+    grid-row: 1/2;
+    justify-self: start;
+    align-self:flex-end;
 }
 
 .gridName{
     grid-column: 1/2;
-    grid-row: 1/2;
+    grid-row: 2/3;
+    display: flex;
+    flex-direction: column;
+    justify-self:start;
 }
 
 .gridLastname{
     grid-column: 2/3;
-    grid-row: 1/2;
+    grid-row: 2/3;
+    display: flex;
+    flex-direction: column;
+    justify-self:start;
 }
 
 .gridDni{
     grid-column: 3/4;
-    grid-row: 1/2;
+    grid-row: 2/3;
+    display: flex;
+    flex-direction: column;
+    justify-self:start;
 }
 
 .gridBirth{
     grid-column: 4/5;
-    grid-row: 1/2;
+    grid-row: 2/3;
     display: flex;
-}
-
-.gridSocial_security{
-    grid-column: 3/4;
-    grid-row: 2/3;
-}
-
-.gridSocial_security_number{
-    grid-column: 4/5;
-    grid-row: 2/3;
+    flex-direction: column;
+    justify-self:start;
 }
 
 .gridGender{
     grid-column: 1/2;
-    grid-row: 2/3;
+    grid-row: 3/4;
+    display: flex;
+    flex-direction: column;
+    justify-self:start;
 }
 
-.gridPhone{
-    grid-column: 2/3;
-    grid-row: 3/4;
+/* ------------------------------- Obra Social ------------------------------ */
+.obraSocialTitle{
+    grid-column: 1/5;
+    grid-row: 4/5;
+    justify-self: start;
+    align-self:flex-end;
 }
+
+.gridSocial_security{
+    grid-column: 1/2;
+    grid-row: 5/6;
+    display: flex;
+    flex-direction: column;
+    justify-self:start;
+}
+
+.gridSocial_security_number{
+    grid-column: 2/3;
+    grid-row: 5/6;
+    display: flex;
+    flex-direction: column;
+    justify-self:start;
+}
+
+/* -------------------------------- Contacto -------------------------------- */
+.contactoTitle{
+    grid-column: 1/5;
+    grid-row: 6/7;
+    justify-self: start;
+    align-self:flex-end;
+}
+
 
 .grideEmail{
     grid-column: 1/2;
-    grid-row: 3/4;
+    grid-row: 7/8;
+    display: flex;
+    flex-direction: column;
+    justify-self:start;
+}
+.gridPhone{
+    grid-column: 2/3;
+    grid-row: 7/8;
+    display: flex;
+    flex-direction: column;
+    justify-self:start;
 }
 
 .gridAddress{
     grid-column: 3/4;
-    grid-row: 3/4;
+    grid-row: 7/8;
+    display: flex;
+    flex-direction: column;
+    justify-self:start;
 }
 
 .gridContainer label{
     margin-right: 5px;
 }
 
+
+
 .inputs{
-    height: 1.25rem;
+    height: 1.5625rem;
     width: 120px;
-    background-color: rgb(211, 208, 208); 
-    border:1px solid rgb(0, 0, 0);  /* Borde: grosor, trazo y color */
+    background-color: rgb(100, 100, 100); 
+    border:none ;/* 1px solid rgb(0, 0, 0); */  /* Borde: grosor, trazo y color */
     border-radius: 5px;               /* Borde: radio */
     outline:1;                        /* BordeExterior: Activacion de Highligth */
     color:white;                    /* Texto: Color */
@@ -112,14 +175,35 @@
     text-align: center;
 }
 
-input:focus{                           /*Seleccion*/
-    background-color: lightblue; 
-    width: 200px;
+.inputs::placeholder{
+    display: none;
+    color: rgb(192, 192, 192);
+}
+
+.inputs:focus{                           /*Seleccion*/
+    background-color: rgb(100, 100, 100); 
+/*     background-color: rgb(151, 147, 147);  */
+    width: 180px;
+    border: 1px solid #007bff;
+    outline: none;
+    box-shadow: 0px 0px 5px #007bff;
 }
 
 .btnAgregar{
-    width: 12%;
+    height: 1.5625rem;
+    width: 100px;
     position: absolute;
-    bottom: 0px;
-    left: 44%;
+    bottom: 15px;
+    left: 47%;
+
+    border-radius: 5px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+}
+
+.btnAgregar:hover{      
+    border: 1px solid #007bff;
+    outline: none;
+    box-shadow: 0px 0px 15px #0151a7;
 }

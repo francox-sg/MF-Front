@@ -1,7 +1,5 @@
 import classes from './NewItemForm.module.css'
 import { useForm } from 'react-hook-form'
-import {  useEffect } from 'react'
-//import { useNavigate } from 'react-router-dom'
 import { useContext } from 'react'
 import { PatientContext } from '../../context/PatientContext'
 

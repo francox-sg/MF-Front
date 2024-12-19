@@ -3,9 +3,7 @@ import { useForm } from 'react-hook-form'
 import { useEffect } from 'react'
 
 const Form = ({setFilters})=>{
-    /* const [nombre, setNombre] = useState("")
-    const [apellido, setApellido] = useState("")
-    const [dni, setDni] = useState("") */
+
 
     const {register, formState:{errors}, handleSubmit, reset, watch} = useForm({
         defaultValues:{

@@ -1,7 +1,7 @@
 import PatientContainer from './components/PatientsContainer/PatientsContainer'
 import PatientDetailContainer from './components/PatientDetailContainer/PatientDetailContainer'
 import NewPatientContainer from './components/NewPatientContainer/NewPatientContainer'
-//import './App.css'
+import './App.css'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
 function App() {
