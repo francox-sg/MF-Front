@@ -30,6 +30,7 @@
 .titulo{
     margin: 10px;
     text-align: center;
+    color: white;
 
 }
 
@@ -59,6 +60,7 @@
     grid-row: 1/2;
     justify-self: start;
     align-self:flex-end;
+    color: white;
 }
 
 .gridName{
@@ -107,6 +109,7 @@
     grid-row: 4/5;
     justify-self: start;
     align-self:flex-end;
+    color: white;
 }
 
 .gridSocial_security{
@@ -131,6 +134,7 @@
     grid-row: 6/7;
     justify-self: start;
     align-self:flex-end;
+    color: white;
 }
 
 
@@ -180,9 +184,13 @@
     color: rgb(192, 192, 192);
 }
 
+.inputs:hover{                           /*Seleccion*/
+    border: 1px solid #007bff;
+    outline: none;
+    box-shadow: 0px 0px 5px #007bff;
+}
 .inputs:focus{                           /*Seleccion*/
     background-color: rgb(100, 100, 100); 
-/*     background-color: rgb(151, 147, 147);  */
     width: 180px;
     border: 1px solid #007bff;
     outline: none;

@@ -1,9 +1,12 @@
 import classes from './NewPatientForm.module.css'
+import { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { useNavigate } from 'react-router-dom'
-
+import Slider from '../slider/Slider'
 
 const NewPatientForm = ({handleButtonClick})=>{
+
+    const [gender, setGender] = useState(true)
 
     const {register, formState:{errors}, handleSubmit, reset, watch} = useForm({
         defaultValues:{
@@ -22,6 +25,10 @@ const NewPatientForm = ({handleButtonClick})=>{
 
     const navigate = useNavigate()
 
+    const handlerGender = () =>{
+        setGender(prev=>!prev)
+    }
+
     const agregarPaciente =  ()=>{
         let newPatient = {}
 
@@ -31,7 +38,7 @@ const NewPatientForm = ({handleButtonClick})=>{
         watch("birth") != ""                   && (newPatient.birth = watch("birth"))
         watch("social_security") != ""         && (newPatient.social_security = watch("social_security"))
         watch("social_security_number") != ""  && (newPatient.social_security_number = watch("social_security_number"))
-        watch("gender") != ""                  && (newPatient.gender = watch("gender"))
+        newPatient.gender = gender ? 1: 0;
         //watch("phone") != ""                   && (newPatient.phone = watch("phone"))
         //watch("email") != ""                   && (newPatient.email = watch("email"))
         //watch("address") != ""                 && (newPatient.address = watch("address"))
@@ -117,7 +124,13 @@ const NewPatientForm = ({handleButtonClick})=>{
                 </div>
                 <div className={classes.gridGender}>
                     <label htmlFor="">Genero</label>
-                    <input className={classes.inputs} type="text" placeholder='' {...register("gender")} />
+                    {/* <input className={classes.inputs} type="text" placeholder='' {...register("gender")} /> */}
+                    {/* <label for="hombre">M</label>
+                    <input type="checkbox"  name="genero" value={1}></input>
+                    <label for="mujer">F</label>
+                    <input type="checkbox"  name="genero" value={0}></input> */}
+                    <Slider value = {gender} handlerValue = {handlerGender} colorTrue='#007bff' colorFalse='#ff006a' letterTrue='M' letterFalse='F'/>
+                    
                 </div>
                 <div className={classes.gridPhone}>
                     <label htmlFor="">Telefono</label>
