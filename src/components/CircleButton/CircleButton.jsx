@@ -7,7 +7,7 @@ const CircleButton = ({action, handleAction, position})=>{
 
     
     return(
-        <button style={position} className={classes.circleButton} onClick={handleAction}>
+        <button style={position} className={classes.btnAgregar} onClick={handleAction}>
             <p>{action}</p>
         </button>
         

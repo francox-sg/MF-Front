@@ -1,24 +1,24 @@
-.componentContainer{
+/* .componentContainer{
     width: 100%;
     display: flex;
     flex-direction: column;
     justify-items: center;
     align-items: center;
-}
-.titulo{
+} */
+/* .titulo{
     position: fixed;
     top: 0px;
     right: 5px;
 }
-
+ */
 .gridContainer{
-    width: 80%;
+    width: 1000px;
     height: 80px;
-    margin-top: 15px;
+    margin-top: 50px;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(2, 30px);
-    justify-items: end;
+    justify-items: start;
 }
 
 .gridName{
@@ -29,29 +29,45 @@
 .gridLastname{
     grid-column: 2/3;
     grid-row: 1/2;
+    justify-self: center;
 }
 
 .gridDni{
-    grid-column: 1/2;
-    grid-row: 2/3;
+    grid-column: 3/4;
+    grid-row: 1/2;
+    justify-self: end;
 }
 
 .gridContainer label{
     margin-right: 5px;
 }
 
-input{
-    height: 1.25rem;
-    width: 100px;
-    background-color: grey; 
-    border:1px solid rgb(0, 0, 0);  /* Borde: grosor, trazo y color */
+.inputs{
+    height: 1.5625rem;
+    width: 120px;
+    background-color: rgb(100, 100, 100); 
+    border:none ;/* 1px solid rgb(0, 0, 0); */  /* Borde: grosor, trazo y color */
     border-radius: 5px;               /* Borde: radio */
     outline:1;                        /* BordeExterior: Activacion de Highligth */
     color:white;                    /* Texto: Color */
     transition: width 1s ease-in-out;
+    text-align: center;
 }
 
-input:focus{                           /*Seleccion*/
-    background-color: lightblue; 
-    width: 150px;
+.inputs::placeholder{
+    display: none;
+    color: rgb(192, 192, 192);
+}
+
+.inputs:hover{                           /*Seleccion*/
+    border: 1px solid #007bff;
+    outline: none;
+    box-shadow: 0px 0px 5px #007bff;
+}
+.inputs:focus{                           /*Seleccion*/
+    background-color: rgb(100, 100, 100); 
+    width: 180px;
+    border: 1px solid #007bff;
+    outline: none;
+    box-shadow: 0px 0px 5px #007bff;
 }

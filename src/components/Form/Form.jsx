@@ -28,15 +28,15 @@ const Form = ({setFilters})=>{
 
                 <div className={classes.gridName}>
                     <label htmlFor="">Nombre</label>
-                    <input type="text" placeholder='Nombre' {...register("nombre")} />
+                    <input className={classes.inputs} type="text" placeholder='' {...register("nombre")} />
                 </div>
                 <div className={classes.gridLastname}>
                     <label htmlFor="">Apellido</label>
-                    <input type="text" placeholder='Apellido' {...register("apellido")} />
+                    <input className={classes.inputs} type="text" placeholder='' {...register("apellido")} />
                 </div>
                 <div className={classes.gridDni}>
                     <label htmlFor="">DNI</label>
-                    <input type="text" placeholder='DNI' {...register("dni")} />
+                    <input className={classes.inputs} type="text" placeholder='' {...register("dni")} />
                 </div>
         </form>
         

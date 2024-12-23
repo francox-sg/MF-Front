@@ -26,7 +26,7 @@ const PatientData = (/* {patient} */)=>{
                 {
                     modifyPatient ? <DataModify patient={patient} setModifyPatient={setModifyPatient} /> :<DataStatic patient={patient}/>
                     }
-                <CircleButton className={classes.button}  action={"Mod"} position= {{right: "-15px", top: "45%"}} handleAction={()=>{setModifyPatient(prev => !prev)}}/>
+                <CircleButton className={classes.button}  action={"Modificar"} position= {{right: "0px", top: "45%"}} handleAction={()=>{setModifyPatient(prev => !prev)}}/>
             </div>
             
         )

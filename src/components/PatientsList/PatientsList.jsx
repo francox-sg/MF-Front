@@ -24,6 +24,10 @@ const PatientsList = ({patients})=>{
 
         return(
             <div className={classes.container}>
+                <div className={classes.header}>
+                    <h2>Nombre</h2>
+                    <h2>DNI</h2>
+                </div>
                 <div className={classes.showPatients} >
 
                     {
@@ -34,7 +38,7 @@ const PatientsList = ({patients})=>{
                     })
                     }
                 </div>
-                    <CircleButton action="+" handleAction = {handleButtonClick} position= {{left: "50%", bottom: "-15px"}} />
+                    <CircleButton action="Agregar" handleAction = {handleButtonClick} position= {{left: "50%", bottom: "5px"}} />
                 {
                     showNewPatient ?
 

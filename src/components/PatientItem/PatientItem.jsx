@@ -2,15 +2,16 @@ import classes from './PatientItem.module.css'
 
 
 
-const PatientItem = ({name, lastname, dni, handleClickPatient })=>{
+const PatientItem = ({name, lastname, dni, edad,  handleClickPatient })=>{
     
     
     
     return(
         <div className={classes.patientContainer} onClick={handleClickPatient}>
 
-            <h1>{lastname} {name}</h1>
-            <h2>{dni}</h2>
+            <h2 className={classes.patientFullName}>{lastname} {name}</h2>
+            <h2 className={classes.patientDni}>{dni}</h2>
+            
 
         </div>
         

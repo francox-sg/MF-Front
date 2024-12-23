@@ -38,10 +38,10 @@ const NewPatientForm = ({handleButtonClick})=>{
         watch("birth") != ""                   && (newPatient.birth = watch("birth"))
         watch("social_security") != ""         && (newPatient.social_security = watch("social_security"))
         watch("social_security_number") != ""  && (newPatient.social_security_number = watch("social_security_number"))
-        newPatient.gender = gender ? 1: 0;
-        //watch("phone") != ""                   && (newPatient.phone = watch("phone"))
-        //watch("email") != ""                   && (newPatient.email = watch("email"))
-        //watch("address") != ""                 && (newPatient.address = watch("address"))
+        newPatient.gender = gender ? 1: 2;
+        watch("phone") != ""                   && (newPatient.phone = watch("phone"))
+        watch("email") != ""                   && (newPatient.email = watch("email"))
+        watch("address") != ""                 && (newPatient.address = watch("address"))
 
         fetch("http://localhost:8080/patient",{
             method: "POST",
@@ -150,7 +150,7 @@ const NewPatientForm = ({handleButtonClick})=>{
                     <input className={classes.inputs} type="text" placeholder='' {...register("address")} />
                 </div>
                 
-                <button type='submit' className={classes.btnAgregar} >Agregar</button>
+                <button type='submit' className={classes.btnAgregar} >Guardar</button>
             </form>
         </div>
     )
