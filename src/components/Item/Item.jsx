@@ -5,28 +5,35 @@ import NewItemForm from '../NewItemForm/NewItemForm'
 
 const Item = (item)=>{
     
-    const [showItemFormUpdate, setShowItemFormUpdate] = useState(false)
+    const [showItemForm, setShowItemForm] = useState(false)
     
     const handleButtonClick = ()=>{
-        console.log("HBC");
         
-        setShowItemFormUpdate(prev => !prev)
-        
+        setShowItemForm(prev => !prev)
         
     }
     
     return(
-        <div className={classes.itemContainer} style={item.type == 0 ? {borderColor:"green"} : {borderColor:"rgb(124, 0, 0)"}} onClick={handleButtonClick} >
-            
-            <h1 className={classes.date}>{item.date} </h1>
+        <>
+        <div className={classes.itemContainer} style={item.type == 0 ? {} : {border:"2px solid rgb(124, 0, 0)"}} onClick={handleButtonClick} >
+            <div className={classes.itemHeader}>
+                <h1 className={classes.date}>{item.date} </h1>
+                {
+                    item.type == 1 
+                    ? <p style={{color:" rgb(124, 0, 0)"}}>Intervencion</p>
+                    :<></>
+                }
+                
+            </div>
             <h2 className={classes.description}>{item.description}</h2>
             
 
-            {
-                showItemFormUpdate ? <NewItemForm handleButtonClick = {handleButtonClick} itemInfo={item} /> : <></>
-            }
         </div>
+        {
+            showItemForm ? <NewItemForm handleButtonClick = {handleButtonClick} itemInfo={item} /> : <></>
+        }
         
+        </>
     )
 }
 

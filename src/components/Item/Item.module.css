@@ -7,7 +7,7 @@
     
     margin: 3px 20px;
 
-    border: 2px solid black;
+    /* border: 2px solid black; */
     border-radius: 5px;
 
     font-size: 1rem;
@@ -18,6 +18,11 @@
     background-color: rgb(105, 105, 105);;
 }
 
+.itemHeader{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
 
 .date{
     font-size: 1.25rem;
