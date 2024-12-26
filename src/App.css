@@ -1,5 +1,23 @@
 #root {
   width: 100%;
   min-height: 100vh;
-  background-image: linear-gradient(to right bottom, #222639, #2a2e41, #333649, #3b3e52, #44475a, #45495c, #474a5e, #484c60, #42475c, #3d4157, #373c53, #32374f);
+  /* -------------------------------- Gradiente ------------------------------- */
+  /* background-image: linear-gradient(to right bottom, #222639, #2a2e41, #333649, #3b3e52, #44475a, #45495c, #474a5e, #484c60, #42475c, #3d4157, #373c53, #32374f); */
+
+  /* --------------------------------- Imagen --------------------------------- */
+  background-image: url('./assets/ADNFONDOdiff.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+
+/* ------------------------------ COLORES BASE ------------------------------ */
+:root{
+    --title-color: white;
+
+    --backgroundBase-color: grey;
+
+    --label-color: rgb(209, 208, 208);
+    --inputBack-color:rgb(100, 100, 100);
+    --placeholder-color: rgb(192, 192, 192);
 }

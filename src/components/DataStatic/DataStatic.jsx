@@ -2,36 +2,24 @@ import classes from './DataStatic.module.css'
 
 
 const DataStatic = ({patient})=>{
-/*     const [showNewPatient, setShowNewPatient] = useState (false)
 
-    const navigate = useNavigate()
- */
-    
-    
-    //console.log("PACIENTE: ",patient.gender);
-    
-/*     const handleButtonClick = ()=>{
-        //navigate('/NuevoPaciente')
-        console.log("Nuevo Paciente");
-        
-        setShowNewPatient(prev =>!prev)
-    } */
+console.log(patient);
 
 
         return(
             <div className={classes.container}>
                 <div className={classes.gridContainer}>
                     
-                    <h1>{patient.lastname}, {patient.name}</h1>
-                    <p>DNI: {patient.dni}</p>
-                    <p>Obra Social: {patient.social_secure}</p>
-                    <p>Numero de Afiliado: {patient.social_secure_number}</p>
-                    <p>Fecha de Nacimiento: {patient.birth}</p>
-                    <p>Edad: {patient.age}</p>
-                    <p>Telefono: {patient.phone}</p>
-                    <p>email: {patient.email}</p>
-                    <p>Direccion: {patient.address}</p>
-{/*                     <p>Genero: {patient.gender}</p> */}
+                    <h1 className={classes.gridName}>{patient.lastname}, {patient.name} ({patient.age} años)</h1>
+                    <p className={classes.gridSocial_secure}>Obra Social: {patient.social_security}</p>
+                    <p className={classes.gridDni}>DNI: {patient.dni}</p>
+                    <p className={classes.gridSocial_secure_number}>Numero de Afiliado: {patient.social_security_number}</p>
+                    <p className={classes.gridBirth}>Fecha de Nacimiento: {patient.birth}</p>
+                    {/* <p className={classes.gridAge}>Edad: {patient.age}</p> */}
+                    <p className={classes.gridPhone}>Telefono: {patient.phone}</p>
+                    <p className={classes.gridEmail}>email: {patient.email}</p>
+                    <p className={classes.gridAddress}>Direccion: {patient.address}</p>
+                    <p className={classes.gridGender}>Genero: {patient.gender == 1 ? "H" : "F"}</p>
                 </div>
                 
             </div>

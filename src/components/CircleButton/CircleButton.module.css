@@ -1,25 +1,10 @@
-/* .circleButton{
-    width: 1.875rem;
-    height: 1.875rem;
-    position: absolute;
- 
 
-    border: 1px 1px black;
-    border-radius: 50%;
-    box-shadow: 1px 1px 1px black;
-
-    background-color: greenyellow;
-    font-size: 1.25rem;
-
-}
- */
 
 .btnAgregar{
     height: 1.5625rem;
     width: 100px;
     position: absolute;
-    bottom: 15px;
-    left: 47%;
+
 
     border-radius: 5px;
     background-color: #007bff;

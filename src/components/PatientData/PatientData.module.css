@@ -1,14 +1,12 @@
 
 .container{
-    background-color: grey;
     width: 80%;
-    /* height: 500px; */
-     position:relative; 
-    /* border-radius: 15px; */
-}
 
-.button{
-    position: absolute;
-    right: 0px;
+    position: relative; /* Para el Botron Interior */
+    background-color: var(--backgroundBase-color);
+
+    border-radius: 15px;
+    
+
 }
 

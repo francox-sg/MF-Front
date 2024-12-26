@@ -1,9 +1,12 @@
 import classes from './DataModify.module.css'
 import { useForm } from 'react-hook-form'
-import { useContext } from 'react'
+import { useContext, useState } from 'react'
 import { PatientContext } from '../../context/PatientContext'
+import Slider from '../slider/Slider'
 
 const DataModify = ({patient, setModifyPatient})=>{
+    const [gender, setGender] = useState(patient.gender == 2 ? false : true)
+
     const {register, formState:{errors}, handleSubmit, reset, watch} = useForm({
         defaultValues:{
             name :patient.name,
@@ -31,10 +34,10 @@ const DataModify = ({patient, setModifyPatient})=>{
         watch("birth") != ""                   && (updatedPatient.birth = watch("birth"))
         watch("social_security") != ""         && (updatedPatient.social_security = watch("social_security"))
         watch("social_security_number") != ""  && (updatedPatient.social_security_number = watch("social_security_number"))
-        watch("gender") != ""                  && (updatedPatient.gender = watch("gender"))
-        //watch("phone") != ""                   && (updatedPatient.phone = watch("phone"))
-        //watch("email") != ""                   && (updatedPatient.email = watch("email"))
-        //watch("address") != ""                 && (updatedPatient.address = watch("address"))
+        updatedPatient.gender =  gender ? 1: 2;
+        watch("phone") != ""                   && (updatedPatient.phone = watch("phone"))
+        watch("email") != ""                   && (updatedPatient.email = watch("email"))
+        watch("address") != ""                 && (updatedPatient.address = watch("address"))
 
         fetch("http://localhost:8080/patient",{
             method: "PUT",
@@ -70,10 +73,13 @@ const DataModify = ({patient, setModifyPatient})=>{
         
     }
 
+    const handlerGender = () =>{
+        setGender(prev=>!prev)
+    }
+
     return(
         <div className={classes.modalContainer}>
             
-            <h1 className={classes.titulo}>Agregar Paciente</h1>
             <form onSubmit={handleSubmit(modificarPaciente)} className={classes.gridContainer}>
     
                     <div className={classes.gridName}>
@@ -107,23 +113,24 @@ const DataModify = ({patient, setModifyPatient})=>{
                         <label htmlFor="">Nacimiento</label>
                         <input className={classes.inputs} type="text" placeholder='DD/MM/AAAA' {...register("birth")} />
                     </div>
-                    <div className={classes.gridSocial_security}>
+                    <div className={classes.gridSocial_secure}>
                         <label htmlFor="">Obra Social</label>
                         <input className={classes.inputs} type="text" placeholder='Obra Social' {...register("social_security")} />
                     </div>
-                    <div className={classes.gridSocial_security_number}>
+                    <div className={classes.gridSocial_secure_number}>
                         <label htmlFor="">Num. Afiliado</label>
                         <input className={classes.inputs} type="text" placeholder='# Afiliado' {...register("social_security_number")} />
                     </div>
                     <div className={classes.gridGender}>
                         <label htmlFor="">Genero</label>
-                        <input className={classes.inputs} type="text" placeholder='Genero' {...register("gender")} />
+                        {/* <input className={classes.inputs} type="text" placeholder='Genero' {...register("gender")} /> */}
+                        <Slider value = {gender} handlerValue = {handlerGender} colorTrue='#007bff' colorFalse='#ff006a' letterTrue='M' letterFalse='F'/>
                     </div>
                     <div className={classes.gridPhone}>
                         <label htmlFor="">Telefono</label>
                         <input className={classes.inputs} type="text" placeholder='Telefono' {...register("phone")} />
                     </div>
-                    <div className={classes.grideEmail}>
+                    <div className={classes.gridEmail}>
                         <label htmlFor="">Email</label>
                         <input className={classes.inputs} type="text" placeholder='Email@MF.com' {...register("email",{pattern: /^[^\s@]+@[^\s@]+\.[^\s@]+$/i })} />
                         {
@@ -137,7 +144,7 @@ const DataModify = ({patient, setModifyPatient})=>{
                         <input className={classes.inputs} type="text" placeholder='Direccion' {...register("address")} />
                     </div>
                     
-                    <button type='submit' className={classes.btnModificar} >Modificar</button>
+                    <button type='submit' className={classes.btnGuardar} >Guardar</button>
             </form>
         </div>
     )

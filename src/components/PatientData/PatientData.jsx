@@ -5,28 +5,21 @@ import DataModify from '../DataModify/DataModify';
 import { useState } from 'react';
 import { useContext } from 'react';
 import { PatientContext } from '../../context/PatientContext';
+import zIndex from '@mui/material/styles/zIndex';
 
-const PatientData = (/* {patient} */)=>{
+const PatientData = ()=>{
     const [modifyPatient, setModifyPatient] = useState (false)
     const {patient} = useContext(PatientContext)
     
     
-    
-
-/*     const handleButtonClick = ()=>{
-        //navigate('/NuevoPaciente')
-        console.log("Nuevo Paciente");
-        
-        setShowNewPatient(prev =>!prev)
-    } */
-
-
         return(
             <div className={classes.container}>
+
                 {
                     modifyPatient ? <DataModify patient={patient} setModifyPatient={setModifyPatient} /> :<DataStatic patient={patient}/>
-                    }
-                <CircleButton className={classes.button}  action={"Modificar"} position= {{right: "0px", top: "45%"}} handleAction={()=>{setModifyPatient(prev => !prev)}}/>
+                }
+
+                <CircleButton  action={modifyPatient ? "Volver" : "Modificar"} position= {{right: "-30px", top: "45%"}} handleAction={()=>{setModifyPatient(prev => !prev)}}/>
             </div>
             
         )
