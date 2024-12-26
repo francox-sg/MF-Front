@@ -16,7 +16,7 @@ const ClinicalHistoryContainer = ()=>{
 
         return(
             <div className={classes.container}>
-                <div className={classes.showitems} >
+                <div className={classes.showItems} >
 
                     {
                     clinicalHistory != -1  // Clinical History = -1 es que no hay Historia clinica
@@ -34,7 +34,7 @@ const ClinicalHistoryContainer = ()=>{
                     }
 
                 </div>
-                    <CircleButton action="+" handleAction = {handleButtonClick} position= {{left: "50%", bottom: "-15px"}} />
+                    <CircleButton action="Agregar" handleAction = {handleButtonClick} position= {{left: "50%", bottom: "-15px"}} />
                 {
                     showNewItem ?
 

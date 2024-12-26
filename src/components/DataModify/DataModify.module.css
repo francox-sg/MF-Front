@@ -5,6 +5,7 @@
 
     position:relative; 
     border-radius: 15px;
+    
 
 }
 
@@ -13,6 +14,10 @@
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: 45px repeat(3, 1.5625rem);
+    gap: 5px;
+
+    margin: 10px;
+    color: var(--label-color);
 }
 
 .gridName{
@@ -63,10 +68,61 @@
 .gridGender{
     grid-row: 2/3;
     grid-column: 2/3;
+
+    display: flex;
 }
 
 .btnGuardar{
     grid-row: 4/5;
     grid-column: 4/5;
+
+    justify-self: center;
+
+    height: 1.5625rem;
+    width: 100px;
+
+    border-radius: 5px;
+    background-color: #034388;
+    color: white;
+    border: none;
 }
+
+.btnGuardar:hover{      
+    border: 1px solid #007bff;
+    outline: none;
+    box-shadow: 0px 0px 15px #0151a7;
+}
+
+.inputs{
+    height: 1.5625rem;
+    width: 120px;
+    background-color: var(--inputBack-color); 
+    border:none ;/* 1px solid rgb(0, 0, 0); */  /* Borde: grosor, trazo y color */
+    border-radius: 5px;               /* Borde: radio */
+    outline:1;                        /* BordeExterior: Activacion de Highligth */
+    color:var(--title-color);                  /* Texto: Color */
+    transition: width 1s ease-in-out;
+    text-align: center;
+}
+
+.inputs::placeholder{
+    display: none;
+    color: var(--placeholder-color);
+}
+
+.inputs:hover{                           /*Seleccion*/
+    border: 1px solid #007bff;
+    outline: none;
+    box-shadow: 0px 0px 5px #007bff;
+}
+.inputs:focus{                           /*Seleccion*/
+    background-color: var(--inputBack-color); 
+    width: 180px;
+    border: 1px solid #007bff;
+    outline: none;
+    box-shadow: 0px 0px 5px #007bff;
+}
+
+
+
 

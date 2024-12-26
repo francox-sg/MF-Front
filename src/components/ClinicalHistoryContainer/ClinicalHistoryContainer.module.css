@@ -1,18 +1,38 @@
 
-.container{
+/* .container{
     background-color: grey;
     width: 80%;
     height: 500px;
     position:relative;
     border-radius: 15px;
-}
+} */
 
-.showPatients{
-    background-color: grey;
-    width: 100%;
+
+.container{
+    background-color:rgb(100, 100, 100); 
+    width: 80%;
     height: 500px;
+
+    display: flex;
+    flex-direction: column;
+    
+    align-items: center;
+    position:relative;
+    border-radius: 15px;
+}
+.showItems{
+    background-color: rgb(122, 120, 120); 
+    height: 600px;
+    width: 95%;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    padding-top: 10px;
+    
+    
 
     border-radius: 15px;
     overflow-y: scroll;
+    
 }
-

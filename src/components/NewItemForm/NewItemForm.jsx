@@ -18,9 +18,13 @@ const NewItemForm = ({ handleButtonClick, itemInfo = null})=>{
         }
     }) 
 
-    
+    const cerrar = (event)=>{
+        event.stopPropagation()
+        handleButtonClick()
+    }
 
     const agregarItem =  ()=>{
+        
         let newItem = {}
 
         watch("date") != ""                    && (newItem.date = watch("date"))
@@ -30,22 +34,22 @@ const NewItemForm = ({ handleButtonClick, itemInfo = null})=>{
         console.log(newItem);
         
         agregarItemContext(newItem)
-        //navigate(`/Paciente/${patient.id}`)
+        
         handleButtonClick()
     }
 
     const actualizarItem =  ()=>{
+        
         let updatedItem = {}
 
         updatedItem.id = itemInfo.id
 
-        //const date = new Date()
-        //updatedItem.date = `${date.getDate()}/${date.getMonth()}/${date.getFullYear()}`;
+
 
         watch("type") != ""                    && (updatedItem.type = watch("type"))
         watch("description") != ""             && (updatedItem.description = watch("description"))
         
-        console.log("ANTES DE ENVIAR",updatedItem);
+        
         
         actualizarItemContext(updatedItem)
         
@@ -54,11 +58,11 @@ const NewItemForm = ({ handleButtonClick, itemInfo = null})=>{
 
     return(
         <div className={classes.modalContainer}>
-            <div className={classes.cerrar} onClick={handleButtonClick} >Cerrar</div>
+            <div className={classes.cerrar} onClick={cerrar} >Cerrar</div>
             <h1 className={classes.titulo}>Agregar Item a Paciente {patient.name} {patient.lastname}</h1>
             <form onSubmit={handleSubmit( itemInfo ? actualizarItem : agregarItem)} className={classes.gridContainer}>
     
-                    <div className={classes.gridName}>
+                    <div className={classes.gridDate}>
                         <label htmlFor="">Fecha</label>
                         <input className={classes.inputs} type="text" placeholder='DD/MM/AAAA' {...register("date", {required: true, minLength: 10})} />
                         {
@@ -66,8 +70,9 @@ const NewItemForm = ({ handleButtonClick, itemInfo = null})=>{
                                 <p>Ingrese una fecha Valida DD/MM/AAAA</p>
                             )
                         }
+
                     </div>
-                    <div className={classes.gridLastname}>
+                    <div className={classes.gridType}>
                         <label htmlFor="">Tipo</label>
                         <select name="select" {...register("type", {required:true})} >
                             <option value={0}  selected >Consulta</option>
@@ -79,9 +84,9 @@ const NewItemForm = ({ handleButtonClick, itemInfo = null})=>{
                             )
                         }
                     </div>
-                    <div className={classes.gridDni}>
+                    <div className={classes.gridDescription}>
                         <label htmlFor="">Descripcion</label>
-                        <input className={classes.inputs} type="text" placeholder='Descripcion' {...register("description", {required: true, minLength: 5})} />
+                        <textarea className={classes.inputs} type="text" placeholder='Descripcion' {...register("description", {required: true, minLength: 5})} />
                         {
                             errors.description?.type === "required" && (
                                 <p>Ingrese una descripcion</p>

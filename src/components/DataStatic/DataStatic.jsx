@@ -3,7 +3,7 @@ import classes from './DataStatic.module.css'
 
 const DataStatic = ({patient})=>{
 
-console.log(patient);
+
 
 
         return(

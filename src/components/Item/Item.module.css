@@ -1,17 +1,30 @@
 .itemContainer{
-    width: 100% - 15px;
-    position:relative;
+    width: 95%;
+    padding: 0px 10px;
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+    flex-direction: column;
+    align-items: start;
     
-    margin: 15px 10px;
-    border: 1px solid black;
-    border-radius: 10px;
+    margin: 3px 20px;
+
+    border: 2px solid black;
+    border-radius: 5px;
 
     font-size: 1rem;
+    background-color:rgb(131, 131, 131);
 }
 
-.patientContainer:hover{
-    border: 1px solid rgb(255, 0, 0);
+.itemContainer:hover{
+    background-color: rgb(105, 105, 105);;
+}
+
+
+.date{
+    font-size: 1.25rem;
+    color: var(--placeholder-color);
+}
+.description{
+    width: 100%;
+    font-size: 1rem;
+    
 }
