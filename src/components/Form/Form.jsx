@@ -1,6 +1,7 @@
 import classes from './Form.module.css'
 import { useForm } from 'react-hook-form'
 import { useEffect } from 'react'
+import lupa from '../../assets/lupa.png'
 
 const Form = ({setFilters})=>{
 
@@ -24,20 +25,25 @@ const Form = ({setFilters})=>{
 
 
     return(
-        <form className={classes.gridContainer}>
-
-                <div className={classes.gridName}>
+        <form className={classes.container}>
+            <div className={classes.buscador}>
+                <img src={lupa} alt="" />
+                <p>Buscador</p>
+            </div>
+            <div className={classes.filtros}>
+                <div className={classes.name}>
                     <label htmlFor="">Nombre</label>
                     <input className={classes.inputs} type="text" placeholder='' {...register("nombre")} />
                 </div>
-                <div className={classes.gridLastname}>
+                <div className={classes.lastname}>
                     <label htmlFor="">Apellido</label>
                     <input className={classes.inputs} type="text" placeholder='' {...register("apellido")} />
                 </div>
-                <div className={classes.gridDni}>
+                <div className={classes.dni}>
                     <label htmlFor="">DNI</label>
                     <input className={classes.inputs} type="text" placeholder='' {...register("dni")} />
                 </div>
+            </div>
         </form>
         
     )

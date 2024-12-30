@@ -5,8 +5,15 @@ import { useState, useEffect } from 'react'
 export const PatientContext = createContext()
 
 const calcularEdad =(fechaNacimiento) => {
+    
+    const fechaHora = fechaNacimiento.split(" ")
+    const fecha = fechaHora[0]
+    const fechaPartida = fecha.split("/")
+    const fechaNacJS = `${fechaPartida[2]}/${fechaPartida[1]}/${fechaPartida[0]}`
+
     const hoy = new Date(); // Fecha actual
-    const nacimiento = new Date(fechaNacimiento); // Convertir la fecha de nacimiento a un objeto Date
+    const nacimiento = new Date(fechaNacJS); // Convertir la fecha de nacimiento a un objeto Date
+    console.log({nacimiento});
     
     let edad = hoy.getFullYear() - nacimiento.getFullYear(); // Restamos el año actual con el de nacimiento
     
@@ -14,6 +21,9 @@ const calcularEdad =(fechaNacimiento) => {
     if (mes < 0 || (mes === 0 && hoy.getDate() < nacimiento.getDate())) {
         edad--; // Si el mes es anterior o estamos antes de la fecha de cumpleaños en el mes, restamos 1
     }
+
+    console.log({edad});
+    
     
     return edad; // Retornamos la edad calculada
 }

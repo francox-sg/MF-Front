@@ -1,6 +1,6 @@
 .sliderContainer{
-    width: 40px;
-    height: 20px;
+    width: 45px;
+    height: 25px;
     display: flex;
     flex-direction: row;
 
@@ -13,8 +13,8 @@
 
 
 .sliderCenter{
-    width: 15px;
-    height: 15px;
+    width: 20px;
+    height: 20px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -24,6 +24,7 @@
     align-self: center;
     margin: 0px 3px;
     transition: all 0.25s linear;
+    
 }
 
 .sliderTrue{
@@ -39,6 +40,6 @@
 
 
 .sliderLetra{
-    font-size: 10px;
+    font-size: 1rem;
     text-align: center;
 }

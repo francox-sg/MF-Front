@@ -1,6 +1,6 @@
-const date = new Date()
+const date = new Date('1996/08/03')
 
 
 console.log(date);
-console.log(date.getDate() + "//"+ date.getMonth() + "//" + date.getFullYear());
+
 

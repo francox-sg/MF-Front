@@ -1,15 +1,16 @@
 
 
 .btnAgregar{
-    height: 1.5625rem;
+    height: 1.875rem;
     width: 100px;
-    position: absolute;
+    /* position: absolute; */
 
 
     border-radius: 5px;
-    background-color: #007bff;
+    background-color: var(--button-color);
     color: white;
     border: none;
+    font-size: 1.25rem;
 }
 
 .btnAgregar:hover{      

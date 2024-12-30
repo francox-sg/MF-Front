@@ -1,8 +1,8 @@
 
 .container{
-    background-color:rgb(100, 100, 100); 
-    width: 1000px;
-    height: 700px;
+    background-color: var(--backgroundBase-color); 
+    width: 50%;
+    height: 70vh;
 
     display: flex;
     flex-direction: column;
@@ -14,7 +14,7 @@
 .header{
     width: 95%;
     height: 30px;
-    padding: 0px 80px;
+    padding: 0px 120px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -27,8 +27,8 @@
 }
 
 .showPatients{
-    background-color: rgb(122, 120, 120); 
-    height: 600px;
+    background-color: var(--backList-color); 
+    height: 85%;
     width: 95%;
     display: flex;
     flex-direction: column;

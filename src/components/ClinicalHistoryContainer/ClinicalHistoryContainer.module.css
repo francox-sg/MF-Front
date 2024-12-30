@@ -1,34 +1,26 @@
 
-/* .container{
-    background-color: grey;
-    width: 80%;
-    height: 500px;
-    position:relative;
-    border-radius: 15px;
-} */
-
-
 .container{
-    background-color:rgb(100, 100, 100); 
+    background-color:var(--backgroundBase-color); 
     width: 80%;
-    height: 500px;
+    height: 65vh;
+    padding:15px ;
 
     display: flex;
     flex-direction: column;
-    
+    justify-content: space-between;
     align-items: center;
     position:relative;
     border-radius: 15px;
 }
 .showItems{
-    background-color: rgb(122, 120, 120); 
-    height: 600px;
+    background-color: var(--backList-color); 
+    height: 94%;
     width: 95%;
     display: flex;
     flex-direction: column;
     justify-content: start;
     align-items: center;
-    padding-top: 10px;
+    padding-top: 15px;
     
     
 

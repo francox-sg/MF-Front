@@ -12,7 +12,7 @@ const NewItemForm = ({ handleButtonClick, itemInfo = null})=>{
 
     const {register, formState:{errors}, handleSubmit, reset, watch} = useForm({
         defaultValues:{
-            date:        itemInfo ? itemInfo.date        : `${date.getDate()}/${date.getMonth()}/${date.getFullYear()}`,
+            date:        itemInfo ? itemInfo.date        : `${date.getDate()}/${date.getMonth()}/${date.getFullYear()} ${date.getHours()}:${date.getMinutes()}:00`,
             type:        itemInfo ? itemInfo.type : 0,
             description: itemInfo ? itemInfo.description : ""
         }
@@ -48,6 +48,7 @@ const NewItemForm = ({ handleButtonClick, itemInfo = null})=>{
 
         watch("type") != ""                    && (updatedItem.type = watch("type"))
         watch("description") != ""             && (updatedItem.description = watch("description"))
+        watch("date") != ""                    && (updatedItem.date = watch("date"))
         
         
         
@@ -64,7 +65,7 @@ const NewItemForm = ({ handleButtonClick, itemInfo = null})=>{
     
                     <div className={classes.gridDate}>
                         <label htmlFor="">Fecha</label>
-                        <input className={classes.inputs} type="text" placeholder='DD/MM/AAAA' {...register("date", {required: true, minLength: 10})} />
+                        <input className={classes.inputs} type="text" placeholder='DD/MM/AAAA HH:MM:SS' {...register("date", {required: true, minLength: 10})} />
                         {
                             errors.date?.type === "required" && (
                                 <p>Ingrese una fecha Valida DD/MM/AAAA</p>

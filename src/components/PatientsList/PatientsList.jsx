@@ -39,7 +39,7 @@ const PatientsList = ({patients})=>{
                     }
                 </div>
                 
-                <CircleButton action="Agregar" handleAction = {handleButtonClick} position= {{left: "50%", bottom: "5px"}} />
+                <CircleButton action="Agregar" handleAction = {handleButtonClick} position= {{margin: "15px"}}  />
                 
                 {
                     showNewPatient ?

@@ -15,9 +15,22 @@
 :root{
     --title-color: white;
 
-    --backgroundBase-color: grey;
+    /* --backgroundBase-color: grey; */
+    --backgroundBase-color:#3c5473c5;
+    --backList-color: #1c25404d;
+    --patientItem-color: rgba(131, 131, 131, 0.308);
+    --patientItem-color-hover: rgb(105, 105, 105);
 
     --label-color: rgb(209, 208, 208);
-    --inputBack-color:rgb(100, 100, 100);
+    /* --inputBack-color:rgb(100, 100, 100); */
+    --inputBack-color: #58677a;
     --placeholder-color: rgb(192, 192, 192);
+
+    --button-color: #007bff;
+
+    --letter-form-size: 1.5rem;
+
+    --titulares-font-size: 2rem;
+
+
 }

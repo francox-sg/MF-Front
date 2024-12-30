@@ -28,8 +28,10 @@ const PatientsContainer = ()=>{
         <div className={classes.componentContainer}>
             <h1 className={classes.titulo}>Gestion de Pacientes</h1>
             <Form setFilters={setFilters}/>
-            <h2>Pacientes</h2>
+
+            <h2 className={classes.tituloPacientes}>Pacientes</h2>
             <PatientsList patients={patients} />
+
 
         </div>
         

@@ -10,9 +10,9 @@
     border-radius: 5px;
 
     font-size: 1rem;
-    background-color:rgb(131, 131, 131);
+    background-color:var(--patientItem-color);
 }
 
 .patientContainer:hover{
-    background-color: rgb(105, 105, 105);;
+    background-color: var(--patientItem-color-hover);
 }

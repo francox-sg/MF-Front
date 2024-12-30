@@ -78,12 +78,12 @@ const DataModify = ({patient, setModifyPatient})=>{
     }
 
     return(
-        <div className={classes.modalContainer}>
+        <div className={classes.container}>
             
             <form onSubmit={handleSubmit(modificarPaciente)} className={classes.gridContainer}>
     
                     <div className={classes.gridName}>
-                        <label htmlFor="">Nombre*</label>
+                        <label className={classes.labels} htmlFor="">Nombre*</label>
                         <input className={classes.inputs} type="text" placeholder='Nombre' {...register("name", {required: true, minLength: 2})} />
                         {
                             errors.name?.type === "required" && (
@@ -92,7 +92,7 @@ const DataModify = ({patient, setModifyPatient})=>{
                         }
                     </div>
                     <div className={classes.gridLastname}>
-                        <label htmlFor="">Apellido*</label>
+                        <label className={classes.labels} htmlFor="">Apellido*</label>
                         <input className={classes.inputs} type="text" placeholder='Apellido' {...register("lastname", {required: true, minLength: 2})} />
                         {
                             errors.lastname?.type === "required" && (
@@ -101,7 +101,7 @@ const DataModify = ({patient, setModifyPatient})=>{
                         }
                     </div>
                     <div className={classes.gridDni}>
-                        <label htmlFor="">DNI*</label>
+                        <label className={classes.labels} htmlFor="">DNI*</label>
                         <input className={classes.inputs} type="text" placeholder='DNI' {...register("dni", {required: true, minLength: 5})} />
                         {
                             errors.dni?.type === "required" && (
@@ -110,28 +110,27 @@ const DataModify = ({patient, setModifyPatient})=>{
                         }
                     </div>
                     <div className={classes.gridBirth}>
-                        <label htmlFor="">Nacimiento</label>
+                        <label className={classes.labels} htmlFor="">Nacimiento</label>
                         <input className={classes.inputs} type="text" placeholder='DD/MM/AAAA' {...register("birth")} />
                     </div>
                     <div className={classes.gridSocial_secure}>
-                        <label htmlFor="">Obra Social</label>
+                        <label className={classes.labels} htmlFor="">Obra Social</label>
                         <input className={classes.inputs} type="text" placeholder='Obra Social' {...register("social_security")} />
                     </div>
                     <div className={classes.gridSocial_secure_number}>
-                        <label htmlFor="">Num. Afiliado</label>
+                        <label className={classes.labels} htmlFor="">N° Afiliado</label>
                         <input className={classes.inputs} type="text" placeholder='# Afiliado' {...register("social_security_number")} />
                     </div>
                     <div className={classes.gridGender}>
                         <label htmlFor="">Genero</label>
-                        {/* <input className={classes.inputs} type="text" placeholder='Genero' {...register("gender")} /> */}
                         <Slider value = {gender} handlerValue = {handlerGender} colorTrue='#007bff' colorFalse='#ff006a' letterTrue='M' letterFalse='F'/>
                     </div>
                     <div className={classes.gridPhone}>
-                        <label htmlFor="">Telefono</label>
+                        <label className={classes.labels} htmlFor="">Telefono</label>
                         <input className={classes.inputs} type="text" placeholder='Telefono' {...register("phone")} />
                     </div>
                     <div className={classes.gridEmail}>
-                        <label htmlFor="">Email</label>
+                        <label className={classes.labels} htmlFor="">Email</label>
                         <input className={classes.inputs} type="text" placeholder='Email@MF.com' {...register("email",{pattern: /^[^\s@]+@[^\s@]+\.[^\s@]+$/i })} />
                         {
                             errors.email?.type === "pattern" && (watch("email") != "") && (
@@ -140,7 +139,7 @@ const DataModify = ({patient, setModifyPatient})=>{
                         }
                     </div>
                     <div className={classes.gridAddress}>
-                        <label htmlFor="">Direccion</label>
+                        <label className={classes.labels} htmlFor="">Direccion</label>
                         <input className={classes.inputs} type="text" placeholder='Direccion' {...register("address")} />
                     </div>
                     
