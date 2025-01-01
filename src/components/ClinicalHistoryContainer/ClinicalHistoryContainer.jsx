@@ -16,6 +16,7 @@ const ClinicalHistoryContainer = ()=>{
 
         return(
             <div className={classes.container}>
+                {/* <h1 style={{fontSize:"2rem", color:"white"}}>Historia Clinica</h1> */}
                 <div className={classes.showItems} >
 
                     {

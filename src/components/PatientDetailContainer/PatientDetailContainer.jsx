@@ -13,7 +13,7 @@ const PatientDetailContainer = ()=>{
             <PatientProvider>
                 <h1 className={classes.titulo}>Detalle de Paciente</h1>
                 <PatientData />
-                <h2 className={classes.titulo}> Historia Clinica</h2>
+                <h2 className={classes.tituloHC}> Historia Clinica</h2>
                 <ClinicalHistoryContainer/>
             </PatientProvider>
 

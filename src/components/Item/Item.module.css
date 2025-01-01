@@ -11,7 +11,8 @@
     border-radius: 5px;
 
     font-size: 1rem;
-    background-color:var(--patientItem-color-hover);
+    /* background-color:var(--patientItem-color-hover); */
+    background-color: var(--patientItem-color);
 }
 
 .itemContainer:hover{
@@ -21,16 +22,19 @@
 .itemHeader{
     width: 100%;
     display: flex;
+    flex-direction: row;
     justify-content: space-between;
+    margin-bottom:5px;
 }
 
 .date{
-    font-size: 1.25rem;
-    color: var(--placeholder-color);
+    font-size: 1.5rem;
+    color: var(--span-color);
     
 }
 .description{
     width: 100%;
-    font-size: 1rem;
+    font-size: 1.3rem;
+    color: var(--label-color)
     
 }

@@ -22,8 +22,10 @@
     --patientItem-color-hover: rgb(105, 105, 105);
 
     --label-color: rgb(209, 208, 208);
-    /* --inputBack-color:rgb(100, 100, 100); */
+    --span-color:  rgb(235, 202, 175);
+    --span-bold: bolder;
     --inputBack-color: #58677a;
+    --inputFocus-color: rgb(100, 100, 100);
     --placeholder-color: rgb(192, 192, 192);
 
     --button-color: #007bff;
@@ -34,3 +36,4 @@
 
 
 }
+

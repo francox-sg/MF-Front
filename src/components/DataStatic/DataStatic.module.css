@@ -15,6 +15,10 @@
     gap: 5px;
     margin: 10px;
 }
+.gridContainer span{
+    color: var(--span-color);
+    font-weight: var(--span-bold);
+}
 
 .gridName{
     grid-row: 1/2;

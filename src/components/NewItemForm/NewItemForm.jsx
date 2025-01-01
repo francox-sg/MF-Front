@@ -12,7 +12,7 @@ const NewItemForm = ({ handleButtonClick, itemInfo = null})=>{
 
     const {register, formState:{errors}, handleSubmit, reset, watch} = useForm({
         defaultValues:{
-            date:        itemInfo ? itemInfo.date        : `${date.getDate()}/${date.getMonth()}/${date.getFullYear()} ${date.getHours()}:${date.getMinutes()}:00`,
+            date:        itemInfo ? itemInfo.date        : `${date.getDate()}/${date.getMonth()+1}/${date.getFullYear()} ${date.getHours()}:${date.getMinutes()}:00`,
             type:        itemInfo ? itemInfo.type : 0,
             description: itemInfo ? itemInfo.description : ""
         }
@@ -60,7 +60,7 @@ const NewItemForm = ({ handleButtonClick, itemInfo = null})=>{
     return(
         <div className={classes.modalContainer}>
             <div className={classes.cerrar} onClick={cerrar} >Cerrar</div>
-            <h1 className={classes.titulo}>Agregar Item a Paciente {patient.name} {patient.lastname}</h1>
+            <h1 className={classes.titulo}>Nueva Historia Clinica {/* de  {patient.name} {patient.lastname} */}</h1>
             <form onSubmit={handleSubmit( itemInfo ? actualizarItem : agregarItem)} className={classes.gridContainer}>
     
                     <div className={classes.gridDate}>
@@ -77,7 +77,7 @@ const NewItemForm = ({ handleButtonClick, itemInfo = null})=>{
                         <label htmlFor="">Tipo</label>
                         <select name="select" {...register("type", {required:true})} >
                             <option value={0}  selected >Consulta</option>
-                            <option value={1} >Intervencion</option>
+                            <option style={{backgroundColor:"rgb(124, 0, 0)"}} value={1} >Intervencion</option>
                         </select>
                         {
                             errors.type?.type === "required" && (
@@ -87,7 +87,7 @@ const NewItemForm = ({ handleButtonClick, itemInfo = null})=>{
                     </div>
                     <div className={classes.gridDescription}>
                         <label htmlFor="">Descripcion</label>
-                        <textarea className={classes.inputs} type="text" placeholder='Descripcion' {...register("description", {required: true, minLength: 5})} />
+                        <textarea className={classes.inputs} type="text" placeholder='' {...register("description", {required: true, minLength: 5})} />
                         {
                             errors.description?.type === "required" && (
                                 <p>Ingrese una descripcion</p>
