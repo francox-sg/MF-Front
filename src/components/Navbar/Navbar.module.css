@@ -1,0 +1,43 @@
+.navbar{
+    position:absolute;
+    width: 150px;
+    height: 100vh;
+    background-color: var(--backgroundBase-color);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+
+.logo{
+    width: 150px;
+    height: 150px;
+    position: absolute;
+    right: -60px;
+}
+
+.logo img{
+    width: 100%;
+    height: 100%;
+}
+
+.navItems{
+    margin-top: 150px;
+    /* padding-left: 15px; */
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.navLink{
+    text-decoration: none;
+    color: var(--span-color);
+    font-size: 1.5rem;
+}
+
+.navLink:hover{
+    color: white;
+}

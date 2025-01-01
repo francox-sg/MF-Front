@@ -31,7 +31,7 @@ const ClinicalHistoryContainer = ()=>{
                         })
                     
                     :
-                            <p>Historia Clinica Vacia</p>
+                            <p className={classes.hCVacia} >Historia Clinica Vacia</p>
                     }
 
                 </div>
