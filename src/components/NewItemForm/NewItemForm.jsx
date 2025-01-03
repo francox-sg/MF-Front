@@ -6,7 +6,8 @@ import { PatientContext } from '../../context/PatientContext'
 
 const NewItemForm = ({ handleButtonClick, itemInfo = null})=>{
     const [showEliminar, setShowEliminar] = useState(false)
-    const {agregarItemContext, actualizarItemContext, eliminarItemContext} = useContext(PatientContext)
+    const [showCartelEliminado, setShowCartelEliminado] = useState(false)
+    const {agregarItemContext, actualizarItemContext, eliminarItemContext, actualizarInformacion} = useContext(PatientContext)
 
     const date = new Date()
 
@@ -58,9 +59,12 @@ const NewItemForm = ({ handleButtonClick, itemInfo = null})=>{
     }
 
     const eliminarItem = async ()=>{
+        setShowCartelEliminado(true)
         const respuesta = await eliminarItemContext(itemInfo.id)
         console.log("Item Eliminado, respuesta: ",respuesta);
-        handleButtonClick()
+        setTimeout(()=>{
+            actualizarInformacion()
+        }, 1000)
     }
 
     return(
@@ -122,6 +126,13 @@ const NewItemForm = ({ handleButtonClick, itemInfo = null})=>{
                     :
                     
                     <button className={classes.btnEliminar} onClick={()=>{setShowEliminar(true)}} >Eliminar</button>)
+                :
+                <></>
+            }
+            {
+                showCartelEliminado
+                ?
+                <div className={classes.btnEliminado}>Eliminado</div>
                 :
                 <></>
             }

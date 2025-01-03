@@ -160,7 +160,7 @@ const PatientProvider = ({children}) => {
             headers: {'Content-Type': 'application/json'}
         })
         .then((resp)=> resp.json())
-        .then((response)=>{
+        .then( async(response)=>{
             console.log("Respuesta del Back", response.data);
             
             
@@ -177,7 +177,8 @@ const PatientProvider = ({children}) => {
 
             
             console.log("Se Eliminó el Item");
-            actualizarInformacion()
+            
+            
             return response.data
             
             
@@ -187,7 +188,7 @@ const PatientProvider = ({children}) => {
     }
 
     return(
-        <PatientContext.Provider value ={{patient, actualizarInformacion, clinicalHistory, agregarItemContext, actualizarItemContext, eliminarItemContext}}>
+        <PatientContext.Provider value ={{patient, actualizarInformacion, clinicalHistory, agregarItemContext, actualizarInformacion, actualizarItemContext, eliminarItemContext}}>
             {children}
         </PatientContext.Provider>
     )
