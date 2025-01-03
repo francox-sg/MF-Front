@@ -123,7 +123,7 @@
 
 
 .btnAgregar{
-    width: 12%;
+    width: 100px;
     position: absolute;
     bottom: 25px;
     left: 44%;
@@ -140,6 +140,55 @@
     border: 1px solid #007bff;
     outline: none;
     box-shadow: 0px 0px 15px #0151a7;
+}
+
+.btnEliminar{
+    width: 100px;
+    position: absolute;
+    bottom: 25px;
+    right: 5%;
+
+    height: 1.5625rem;
+    font-size: 1.2rem;
+    border-radius: 5px;
+    background-color: #921f03;
+    color: white;
+    border: none;
+}
+.confirmacionEliminar{
+    
+    position: absolute;
+    bottom: 25px;
+    right: 5%;
+    display: flex;
+    align-items: center;
+
+
+    height: 1.5625rem;
+    font-size: 1.2rem;
+    border-radius: 5px;
+    color: white;
+    border: none;
+}
+.confirmacionEliminar div{
+    /* width: 100px; */
+
+    height: 1.5625rem;
+    font-size: 1.2rem;
+    border-radius: 5px;
+    color: white;
+    border: none;
+    background-color: var(--inputBack-color);
+}
+
+.confirmacionEliminar button{
+    width: 40px;
+    height: 40px;
+    font-size: 1.2rem;
+    border-radius: 50%;
+    color: white;
+    border: none;
+    text-align: center;
 }
 
 

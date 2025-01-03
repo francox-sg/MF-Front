@@ -1,12 +1,12 @@
 import classes from './NewItemForm.module.css'
 import { useForm } from 'react-hook-form'
-import { useContext } from 'react'
+import { useContext, useState } from 'react'
 import { PatientContext } from '../../context/PatientContext'
 
 
 const NewItemForm = ({ handleButtonClick, itemInfo = null})=>{
-    
-    const {patient, agregarItemContext, actualizarItemContext} = useContext(PatientContext)
+    const [showEliminar, setShowEliminar] = useState(false)
+    const {agregarItemContext, actualizarItemContext, eliminarItemContext} = useContext(PatientContext)
 
     const date = new Date()
 
@@ -57,6 +57,12 @@ const NewItemForm = ({ handleButtonClick, itemInfo = null})=>{
         handleButtonClick()
     }
 
+    const eliminarItem = async ()=>{
+        const respuesta = await eliminarItemContext(itemInfo.id)
+        console.log("Item Eliminado, respuesta: ",respuesta);
+        handleButtonClick()
+    }
+
     return(
         <div className={classes.modalContainer}>
             <div className={classes.cerrar} onClick={cerrar} >Cerrar</div>
@@ -98,6 +104,27 @@ const NewItemForm = ({ handleButtonClick, itemInfo = null})=>{
                     
                     <button type='submit' className={classes.btnAgregar} >{itemInfo? "Modificar" : "Agregar"}</button>
             </form>
+            
+            {
+                itemInfo
+                ?
+                (showEliminar 
+                    ? 
+                    
+                    (
+                        <div className={classes.confirmacionEliminar}>
+                            <button onClick={eliminarItem} style={{backgroundColor:"#921f03"}}>SI</button>
+                            <div>¿Está Seguro?</div> 
+                            <button onClick={()=>{setShowEliminar(false)}}  style={{backgroundColor:"#03920f"}}>NO</button>
+                        </div>
+                    )
+                    
+                    :
+                    
+                    <button className={classes.btnEliminar} onClick={()=>{setShowEliminar(true)}} >Eliminar</button>)
+                :
+                <></>
+            }
         </div>
     )
 }

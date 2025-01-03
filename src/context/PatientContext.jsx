@@ -153,8 +153,41 @@ const PatientProvider = ({children}) => {
                 )
     }
 
+    const eliminarItemContext = async(itemId)=>{
+
+        await fetch(`http://localhost:8080/clinicalHistory/${itemId}`,{
+            method: "DELETE",
+            headers: {'Content-Type': 'application/json'}
+        })
+        .then((resp)=> resp.json())
+        .then((response)=>{
+            console.log("Respuesta del Back", response.data);
+            
+            
+
+            if(!response.data){
+                console.log("Error al eliminar Item, Campos erroneos");
+                return null
+            }
+
+            if(response.data == -1){
+                console.log("Error al eliminar Item, error: -1");
+                return -1
+            }
+
+            
+            console.log("Se Eliminó el Item");
+            actualizarInformacion()
+            return response.data
+            
+            
+            }
+        )
+
+    }
+
     return(
-        <PatientContext.Provider value ={{patient, actualizarInformacion, clinicalHistory, agregarItemContext, actualizarItemContext}}>
+        <PatientContext.Provider value ={{patient, actualizarInformacion, clinicalHistory, agregarItemContext, actualizarItemContext, eliminarItemContext}}>
             {children}
         </PatientContext.Provider>
     )
