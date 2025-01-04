@@ -8,6 +8,8 @@
     flex-direction: column;
     align-items: center;
 
+    transition: all 1s;
+
 }
 
 
@@ -16,6 +18,7 @@
     height: 150px;
     position: absolute;
     right: -60px;
+    transition: all 1s;
 }
 
 .logo img{
@@ -25,17 +28,20 @@
 
 .navItems{
     margin-top: 150px;
-    /* padding-left: 15px; */
     width: 90%;
     display: flex;
     flex-direction: column;
     align-items: center;
+    transition: all 1s;
+
 }
 
 .navLink{
     text-decoration: none;
     color: var(--span-color);
     font-size: 1.5rem;
+    transition: all 1s;
+
 }
 
 .navLink:hover{
