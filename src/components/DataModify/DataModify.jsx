@@ -7,7 +7,7 @@ import Slider from '../slider/Slider'
 const DataModify = ({patient, setModifyPatient})=>{
     const [gender, setGender] = useState(patient.gender == 2 ? false : true)
 
-    const {register, formState:{errors}, handleSubmit, reset, watch} = useForm({
+    const {register, formState:{errors}, handleSubmit, setValue, reset, watch} = useForm({
         defaultValues:{
             name :patient.name,
             lastname :patient.lastname,
@@ -18,7 +18,9 @@ const DataModify = ({patient, setModifyPatient})=>{
             gender :patient.gender,
             phone :patient.phone,
             email :patient.email,
-            address :patient.address
+            address :patient.address,
+            address :patient.country,
+            address :patient.postal_code
         }
     }) 
     
@@ -38,6 +40,8 @@ const DataModify = ({patient, setModifyPatient})=>{
         watch("phone") != ""                   && (updatedPatient.phone = watch("phone"))
         watch("email") != ""                   && (updatedPatient.email = watch("email"))
         watch("address") != ""                 && (updatedPatient.address = watch("address"))
+        watch("country") != ""                 && (updatedPatient.country = watch("country"))
+        watch("postal_code") != ""                 && (updatedPatient.postal_code = watch("postal_code"))
 
         fetch("http://localhost:8080/patient",{
             method: "PUT",
@@ -77,6 +81,32 @@ const DataModify = ({patient, setModifyPatient})=>{
         setGender(prev=>!prev)
     }
 
+    const agregarBarra = (e) => {
+        
+        let fecha = watch("birth")
+        let largoCadena = fecha.length;
+        let tecla = e.key
+        
+        console.log({fecha},{largoCadena},{tecla});
+        
+        
+        if(tecla == "Backspace"){
+        //Borro Barra
+            if(largoCadena == 4 || largoCadena == 7){
+                console.log("Seteo",fecha.slice(0,-1));
+                
+                setValue("birth",`${fecha.slice(0,-1)}`)
+            }
+        }else{
+        //Agrego Barra
+        if(largoCadena == 3 || largoCadena == 6){
+            let ultimoCaracter = fecha.charAt(fecha.length - 1); // Obtiene el último carácter
+            fecha = fecha.slice(0,-1)
+            setValue("birth",`${fecha}/${ultimoCaracter}`)
+            }
+        }
+    }
+
     return(
         <div className={classes.container}>
             
@@ -111,7 +141,7 @@ const DataModify = ({patient, setModifyPatient})=>{
                     </div>
                     <div className={classes.gridBirth}>
                         <label className={classes.labels} htmlFor="">Nacimiento</label>
-                        <input className={classes.inputs} type="text" placeholder='DD/MM/AAAA' {...register("birth")} />
+                        <input onKeyDown={agregarBarra}  className={classes.inputs} type="text" placeholder='DD/MM/AAAA' {...register("birth")} />
                     </div>
                     <div className={classes.gridSocial_secure}>
                         <label className={classes.labels} htmlFor="">Obra Social</label>
@@ -141,6 +171,16 @@ const DataModify = ({patient, setModifyPatient})=>{
                     <div className={classes.gridAddress}>
                         <label className={classes.labels} htmlFor="">Direccion</label>
                         <input className={classes.inputs} type="text" placeholder='Direccion' {...register("address")} />
+                    </div>
+
+                    <div className={classes.gridCountry}>
+                        <label className={classes.labels} htmlFor="">Pais</label>
+                        <input className={classes.inputs} type="text" placeholder='Pais' {...register("country")} />
+                    </div>
+
+                    <div className={classes.gridPostal_code}>
+                        <label className={classes.labels} htmlFor="">CP</label>
+                        <input className={classes.inputs} type="text" placeholder='Codigo Postal' {...register("postal_code")} />
                     </div>
                     
                     <button type='submit' className={classes.btnGuardar} >Guardar</button>

@@ -10,7 +10,7 @@
 .gridContainer{
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: 45px repeat(3, 1.875rem);
+    grid-template-rows: 45px repeat(5, 1.875rem);
 
     gap: 5px;
     margin: 10px;
@@ -59,7 +59,18 @@
 
 .gridAddress{
     grid-row: 4/5;
-    grid-column: 3/4;
+    grid-column: 3/5;
+}
+.gridCountry{
+    grid-row: 5/6;
+    grid-column: 1/2;
+}
+.gridPostal_code{
+    grid-row: 5/6;
+    grid-column: 2/3;
+}
+.gridAddress input{
+    width: 600px;
 }
 
 .gridGender{

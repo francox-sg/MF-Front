@@ -16,9 +16,11 @@ const DataStatic = ({patient})=>{
                     <p className={classes.gridSocial_secure_number}><span>N° Afiliado:</span> {patient.social_security_number}</p>
                     <p className={classes.gridBirth}><span>Fecha de Nacimiento:</span> {patient.birth}</p>
                     <p className={classes.gridPhone}><span>Telefono:</span> {patient.phone}</p>
-                    <p className={classes.gridEmail}><span>email:</span> {patient.email}</p>
+                    <p className={classes.gridEmail}><span>Email:</span> {patient.email}</p>
                     <p className={classes.gridAddress}><span>Direccion:</span> {patient.address}</p>
                     <p className={classes.gridGender}><span>Genero:</span> {patient.gender == 1 ? "H" : "F"}</p>
+                    <p className={classes.gridCountry}><span>Pais:</span> {patient.country}</p>
+                    <p className={classes.gridPostal_code}><span>CP:</span> {patient.postal_code}</p>
                 </div>
                 
             </div>

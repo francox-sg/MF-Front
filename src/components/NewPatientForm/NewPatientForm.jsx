@@ -8,7 +8,7 @@ const NewPatientForm = ({handleButtonClick})=>{
 
     const [gender, setGender] = useState(true)
 
-    const {register, formState:{errors}, handleSubmit, reset, watch} = useForm({
+    const {register, formState:{errors}, handleSubmit, setValue, reset, watch} = useForm({
         defaultValues:{
             name:"",
             lastname:"",
@@ -19,14 +19,40 @@ const NewPatientForm = ({handleButtonClick})=>{
             gender:"",
             phone:"",
             email:"",
-            address:""
+            address:"",
+            country:"",
+            postal_code:"",
         }
     }) 
 
     const navigate = useNavigate()
 
-    const handlerGender = () =>{
-        setGender(prev=>!prev)
+    const handlerGender = (e) =>{
+        setGender(prev=>!prev) 
+    }
+
+    
+    
+    const agregarBarra = (e) => {
+        
+        let fecha = watch("birth")
+        let largoCadena = fecha.length;
+        let tecla = e.key
+        
+        
+        if(tecla == "Backspace"){
+        //Borro Barra
+            if(largoCadena == 4 || largoCadena == 7){
+                setValue("birth",`${fecha.slice(0,-1)}`)
+            }
+        }else{
+        //Agrego Barra
+        if(largoCadena == 3 || largoCadena == 6){
+            let ultimoCaracter = fecha.charAt(fecha.length - 1); // Obtiene el último carácter
+            fecha = fecha.slice(0,-1)
+            setValue("birth",`${fecha}/${ultimoCaracter}`)
+            }
+        }
     }
 
     const agregarPaciente =  ()=>{
@@ -42,6 +68,8 @@ const NewPatientForm = ({handleButtonClick})=>{
         watch("phone") != ""                   && (newPatient.phone = watch("phone"))
         watch("email") != ""                   && (newPatient.email = watch("email"))
         watch("address") != ""                 && (newPatient.address = watch("address"))
+        watch("country") != ""                 && (newPatient.country = watch("country"))
+        watch("postal_code") != ""             && (newPatient.postal_code = watch("postal_code"))
 
         fetch("http://localhost:8080/patient",{
             method: "POST",
@@ -112,7 +140,7 @@ const NewPatientForm = ({handleButtonClick})=>{
                 </div>
                 <div className={classes.gridBirth}>
                     <label htmlFor="">Nacimiento</label>
-                    <input className={classes.inputs} type="text" placeholder='DD/MM/AAAA' {...register("birth")} />
+                    <input onKeyDown={agregarBarra} className={classes.inputs} type="text" placeholder='DD/MM/AAAA' {...register("birth")} />
                 </div>
                 <div className={classes.gridSocial_security}>
                     <label htmlFor="">Obra Social</label>
@@ -124,30 +152,34 @@ const NewPatientForm = ({handleButtonClick})=>{
                 </div>
                 <div className={classes.gridGender}>
                     <label htmlFor="">Genero</label>
-                    {/* <input className={classes.inputs} type="text" placeholder='' {...register("gender")} /> */}
-                    {/* <label for="hombre">M</label>
-                    <input type="checkbox"  name="genero" value={1}></input>
-                    <label for="mujer">F</label>
-                    <input type="checkbox"  name="genero" value={0}></input> */}
                     <Slider value = {gender} handlerValue = {handlerGender} colorTrue='#007bff' colorFalse='#ff006a' letterTrue='M' letterFalse='F'/>
-                    
-                </div>
-                <div className={classes.gridPhone}>
-                    <label htmlFor="">Telefono</label>
-                    <input className={classes.inputs} type="text" placeholder='' {...register("phone")} />
                 </div>
                 <div className={classes.grideEmail}>
                     <label htmlFor="">Email</label>
                     <input className={classes.inputs} type="text" placeholder='Email@MF.com' {...register("email",{pattern: /^[^\s@]+@[^\s@]+\.[^\s@]+$/i })} />
                     {
                         errors.email?.type === "pattern" && (watch("email") != "") && (
-                            <p>Ingrese un email validao</p>
+                            <p>Ingrese un email valido</p>
                         )
                     }
+                </div>
+                <div className={classes.gridPhone}>
+                    <label htmlFor="">Telefono</label>
+                    <input className={classes.inputs} type="text" placeholder='' {...register("phone")} />
                 </div>
                 <div className={classes.gridAddress}>
                     <label htmlFor="">Direccion</label>
                     <input className={classes.inputs} type="text" placeholder='' {...register("address")} />
+                </div>
+                
+                <div className={classes.gridCountry}>
+                    <label htmlFor="">Pais</label>
+                    <input className={classes.inputs} type="text" placeholder='' {...register("country")} />
+                </div>
+                
+                <div className={classes.gridPostal_code}>
+                    <label htmlFor="">Codigo Postal</label>
+                    <input className={classes.inputs} type="text" placeholder='' {...register("postal_code")} />
                 </div>
                 
                 <button type='submit' className={classes.btnAgregar} >Guardar</button>
