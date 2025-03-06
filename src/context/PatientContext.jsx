@@ -44,7 +44,8 @@ const PatientProvider = ({children}) => {
             //console.log(response.data);
             let  patient = response.data
             patient.birth && (patient.age = calcularEdad(patient.birth))
-
+            console.log(patient);
+            
             setPatient(patient)
             }
         )

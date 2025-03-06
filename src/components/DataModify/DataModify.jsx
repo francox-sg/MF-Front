@@ -19,13 +19,14 @@ const DataModify = ({patient, setModifyPatient})=>{
             phone :patient.phone,
             email :patient.email,
             address :patient.address,
-            address :patient.country,
-            address :patient.postal_code
+            country :patient.country,
+            postal_code :patient.postal_code
         }
     }) 
     
     const {actualizarInformacion} = useContext(PatientContext)
-
+    console.log("PATIENTMODIFY",patient);
+    
 
     const modificarPaciente =  ()=>{
         let updatedPatient = {}
@@ -41,7 +42,7 @@ const DataModify = ({patient, setModifyPatient})=>{
         watch("email") != ""                   && (updatedPatient.email = watch("email"))
         watch("address") != ""                 && (updatedPatient.address = watch("address"))
         watch("country") != ""                 && (updatedPatient.country = watch("country"))
-        watch("postal_code") != ""                 && (updatedPatient.postal_code = watch("postal_code"))
+        watch("postal_code") != ""             && (updatedPatient.postal_code = watch("postal_code"))
 
         fetch("http://localhost:8080/patient",{
             method: "PUT",
