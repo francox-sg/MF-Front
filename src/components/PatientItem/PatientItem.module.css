@@ -16,3 +16,6 @@
 .patientContainer:hover{
     background-color: var(--patientItem-color-hover);
 }
+.patientFullName{
+    font-size: 1.3rem;
+}

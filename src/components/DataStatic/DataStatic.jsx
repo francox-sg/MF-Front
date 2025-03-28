@@ -19,7 +19,7 @@ const DataStatic = ({patient})=>{
                     <p className={classes.gridEmail}><span>Email:</span> {patient.email}</p>
                     <p className={classes.gridAddress}><span>Direccion:</span> {patient.address}</p>
                     <p className={classes.gridGender}><span>Genero:</span> {patient.gender == 1 ? "H" : "F"}</p>
-                    <p className={classes.gridCountry}><span>Pais:</span> {patient.country}</p>
+                    <p className={classes.gridCountry}><span>Localidad:</span> {patient.country}</p>
                     <p className={classes.gridPostal_code}><span>CP:</span> {patient.postal_code}</p>
                 </div>
                 

@@ -140,3 +140,24 @@
         opacity: 1;
     }
 }
+
+
+
+@media only screen and (max-width: 1912px) {
+
+    .container{
+        font-size: 1.3rem;
+        width: auto;
+    }
+    .filtros{
+        gap:20px
+    }
+}
+
+@media only screen and (max-width: 1550px) {
+
+    .container{
+        width: 850px;
+    }
+
+}

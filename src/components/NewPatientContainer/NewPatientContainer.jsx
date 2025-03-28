@@ -1,7 +1,7 @@
 import classes from './NewPatientContainer.module.css'
 
 import PatientsList from '../PatientsList/PatientsList'
-import Form from '../Form/Form'
+
 
 const NewPatientContainer = ()=>{
 

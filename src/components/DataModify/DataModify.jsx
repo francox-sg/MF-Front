@@ -175,7 +175,7 @@ const DataModify = ({patient, setModifyPatient})=>{
                     </div>
 
                     <div className={classes.gridCountry}>
-                        <label className={classes.labels} htmlFor="">Pais</label>
+                        <label className={classes.labels} htmlFor="">Localidad</label>
                         <input className={classes.inputs} type="text" placeholder='Pais' {...register("country")} />
                     </div>
 

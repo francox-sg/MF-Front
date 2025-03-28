@@ -1,6 +1,6 @@
 
 .modalContainer{
-    width: 1500px;
+    width: 80vw;
     height: 700px;
     position: fixed;
 
@@ -288,4 +288,19 @@
                 filter: blur(0px);
         opacity: 1;
     }
+}
+
+
+
+@media only screen and (max-width: 1800px) {
+    
+.gridContainer{
+    width: 100%;
+    margin-left: 15px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(9, 60px);
+    justify-items: center;
+    align-items: center;
+}
 }

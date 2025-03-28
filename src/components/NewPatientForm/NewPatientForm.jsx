@@ -173,7 +173,7 @@ const NewPatientForm = ({handleButtonClick})=>{
                 </div>
                 
                 <div className={classes.gridCountry}>
-                    <label htmlFor="">Pais</label>
+                    <label htmlFor="">Localidad</label>
                     <input className={classes.inputs} type="text" placeholder='' {...register("country")} />
                 </div>
                 

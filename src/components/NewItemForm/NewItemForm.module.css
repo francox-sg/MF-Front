@@ -82,12 +82,13 @@
 .gridDescription{
     grid-row: 3/7;
     grid-column: 1/5;
+    width: 100%;
 
     display: flex;
     flex-direction: column;
 }
 .gridDescription textarea{
-    width: 1200px;
+    width: 100%;
     height: 500px;
     text-align: start;
     
