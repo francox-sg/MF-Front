@@ -28,6 +28,11 @@
     background-color: black;
 }
 
+.btnModify:hover{
+    cursor: pointer;
+    box-shadow: 0px 0px 25px #ffffff;
+}
+
 .btnModify img{
     width: 100%;
     height: 100%;

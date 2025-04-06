@@ -23,8 +23,8 @@
     font-size: 1.5rem;
 
     /* -------------------------------- Animacion ------------------------------- */
-    -webkit-animation: puff-in-center 0.2s cubic-bezier(0.470, 0.000, 0.745, 0.715) both;
-    animation: puff-in-center 0.2s cubic-bezier(0.470, 0.000, 0.745, 0.715) both;
+ /*    -webkit-animation: puff-in-center 0.2s cubic-bezier(0.470, 0.000, 0.745, 0.715) both;
+    animation: puff-in-center 0.2s cubic-bezier(0.470, 0.000, 0.745, 0.715) both; */
 }
 
 .cerrar{
@@ -36,6 +36,7 @@
 .cerrar:hover{
     color: rgb(255, 255, 255);
     transform: scale(1.1);
+    cursor: pointer;
 }
 
 .titulo{
@@ -251,6 +252,7 @@
     border: 1px solid #007bff;
     outline: none;
     box-shadow: 0px 0px 15px #0151a7;
+    cursor: pointer;
 }
 
 

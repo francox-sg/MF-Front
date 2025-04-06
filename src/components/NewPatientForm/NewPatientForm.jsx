@@ -34,25 +34,37 @@ const NewPatientForm = ({handleButtonClick})=>{
     
     
     const agregarBarra = (e) => {
-        
         let fecha = watch("birth")
         let largoCadena = fecha.length;
         let tecla = e.key
         
         
-        if(tecla == "Backspace"){
-        //Borro Barra
-            if(largoCadena == 4 || largoCadena == 7){
-                setValue("birth",`${fecha.slice(0,-1)}`)
-            }
-        }else{
-        //Agrego Barra
-        if(largoCadena == 3 || largoCadena == 6){
-            let ultimoCaracter = fecha.charAt(fecha.length - 1); // Obtiene el último carácter
-            fecha = fecha.slice(0,-1)
-            setValue("birth",`${fecha}/${ultimoCaracter}`)
-            }
+        console.log("Fecha Inicial: ", fecha);
+        console.log("Largo:: ", largoCadena);
+        console.log("Nuevo Caracter: ", tecla);
+        
+
+        let string = fecha.replaceAll("/","")
+        let cantChar = string.length
+
+        let fechaFinal=""
+
+        if (cantChar <= 2) {
+            fechaFinal = string.substring(0, cantChar);
+        } else if (cantChar <= 4) {
+            fechaFinal = string.substring(0, 2);
+            fechaFinal += "/";
+            fechaFinal += string.substring(2, cantChar);
+        } else if (cantChar >= 5) {
+            fechaFinal = string.substring(0, 2);
+            fechaFinal += "/";
+            fechaFinal += string.substring(2, 4);
+            fechaFinal += "/";
+            fechaFinal += string.substring(4, cantChar);
         }
+
+
+    setValue("birth",`${fechaFinal}`)
     }
 
     const agregarPaciente =  ()=>{
@@ -140,7 +152,7 @@ const NewPatientForm = ({handleButtonClick})=>{
                 </div>
                 <div className={classes.gridBirth}>
                     <label htmlFor="">Nacimiento</label>
-                    <input onKeyDown={agregarBarra} className={classes.inputs} type="text" placeholder='DD/MM/AAAA' {...register("birth")} />
+                    <input onKeyUp={agregarBarra} className={classes.inputs} type="text" placeholder='DD/MM/AAAA' {...register("birth")} />
                 </div>
                 <div className={classes.gridSocial_security}>
                     <label htmlFor="">Obra Social</label>
