@@ -35,13 +35,10 @@ const NewPatientForm = ({handleButtonClick})=>{
     
     const agregarBarra = (e) => {
         let fecha = watch("birth")
-        let largoCadena = fecha.length;
-        let tecla = e.key
+        //let largoCadena = fecha.length;
+        //let tecla = e.key
         
         
-        console.log("Fecha Inicial: ", fecha);
-        console.log("Largo:: ", largoCadena);
-        console.log("Nuevo Caracter: ", tecla);
         
 
         let string = fecha.replaceAll("/","")

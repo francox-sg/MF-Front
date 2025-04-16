@@ -13,7 +13,7 @@ const calcularEdad =(fechaNacimiento) => {
 
     const hoy = new Date(); // Fecha actual
     const nacimiento = new Date(fechaNacJS); // Convertir la fecha de nacimiento a un objeto Date
-    console.log({nacimiento});
+    //console.log({nacimiento});
     
     let edad = hoy.getFullYear() - nacimiento.getFullYear(); // Restamos el año actual con el de nacimiento
     
@@ -22,7 +22,7 @@ const calcularEdad =(fechaNacimiento) => {
         edad--; // Si el mes es anterior o estamos antes de la fecha de cumpleaños en el mes, restamos 1
     }
 
-    console.log({edad});
+    //console.log({edad});
     
     
     return edad; // Retornamos la edad calculada
@@ -44,7 +44,7 @@ const PatientProvider = ({children}) => {
             //console.log(response.data);
             let  patient = response.data
             patient.birth && (patient.age = calcularEdad(patient.birth))
-            console.log(patient);
+            //console.log(patient);
             
             setPatient(patient)
             }
@@ -94,7 +94,7 @@ const PatientProvider = ({children}) => {
                 })
                 .then((resp)=> resp.json())
                 .then((response)=>{
-                    console.log("Respuesta del Back", response.data);
+                    //console.log("Respuesta del Back", response.data);
                     
                     
         
@@ -120,7 +120,7 @@ const PatientProvider = ({children}) => {
     const actualizarItemContext = (updatedItem)=>{
 
             updatedItem.patient_id = patient.id
-            console.log({updatedItem});
+            //console.log({updatedItem});
             
 
             fetch("http://localhost:8080/clinicalHistory",{
@@ -130,7 +130,7 @@ const PatientProvider = ({children}) => {
                 })
                 .then((resp)=> resp.json())
                 .then((response)=>{
-                    console.log("Respuesta del Back", response.data);
+                    //console.log("Respuesta del Back", response.data);
                     
                     
         
@@ -145,7 +145,7 @@ const PatientProvider = ({children}) => {
                     }
         
                     
-                    console.log("Se Modificó el Item", updatedItem);
+                    //console.log("Se Modificó el Item", updatedItem);
                     
                     actualizarInformacion()
                     
@@ -162,7 +162,7 @@ const PatientProvider = ({children}) => {
         })
         .then((resp)=> resp.json())
         .then( async(response)=>{
-            console.log("Respuesta del Back", response.data);
+            //console.log("Respuesta del Back", response.data);
             
             
 

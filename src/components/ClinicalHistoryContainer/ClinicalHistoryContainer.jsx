@@ -8,7 +8,7 @@ import NewItemForm from '../NewItemForm/NewItemForm'
 const ClinicalHistoryContainer = ()=>{
     const [showNewItem, setShowNewItem] = useState(false)
     const {clinicalHistory} = useContext(PatientContext)
-    console.log(clinicalHistory);
+    //console.log(clinicalHistory);
     
     const handleButtonClick = ()=>{
         setShowNewItem(prev => !prev)

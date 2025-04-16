@@ -25,7 +25,7 @@ const DataModify = ({patient, setModifyPatient})=>{
     }) 
     
     const {actualizarInformacion} = useContext(PatientContext)
-    console.log("PATIENTMODIFY",patient);
+    //console.log("PATIENTMODIFY",patient);
     
 
     const modificarPaciente =  ()=>{
@@ -43,7 +43,9 @@ const DataModify = ({patient, setModifyPatient})=>{
         watch("address") != ""                 && (updatedPatient.address = watch("address"))
         watch("country") != ""                 && (updatedPatient.country = watch("country"))
         watch("postal_code") != ""             && (updatedPatient.postal_code = watch("postal_code"))
-
+        updatedPatient.id= patient.id;
+        //console.log("UPDATED PATIENT", updatedPatient);
+        
         fetch("http://localhost:8080/patient",{
             method: "PUT",
             headers: {'Content-Type': 'application/json'},
@@ -51,12 +53,12 @@ const DataModify = ({patient, setModifyPatient})=>{
         })
         .then((resp)=> resp.json())
         .then((response)=>{
-            console.log("Respuesta del Back", response.data);
+            //console.log("Respuesta del Back", response.data);
             
             
 
             if(!response.data){
-                console.log("Error al Agregar PAciente, Campos erroneos", updatedPatient);
+                console.log("Error al Agregar Paciente, Campos erroneos", updatedPatient);
                 return
             }
 
@@ -66,7 +68,7 @@ const DataModify = ({patient, setModifyPatient})=>{
             }
 
             if(response.data.id){
-                console.log("Se Modificó el paciente",  updatedPatient);
+                //console.log("Se Modificó el paciente",  updatedPatient);
                 actualizarInformacion()
                 setModifyPatient()
 
@@ -88,13 +90,13 @@ const DataModify = ({patient, setModifyPatient})=>{
         let largoCadena = fecha.length;
         let tecla = e.key
         
-        console.log({fecha},{largoCadena},{tecla});
+        //console.log({fecha},{largoCadena},{tecla});
         
         
         if(tecla == "Backspace"){
         //Borro Barra
             if(largoCadena == 4 || largoCadena == 7){
-                console.log("Seteo",fecha.slice(0,-1));
+                //console.log("Seteo",fecha.slice(0,-1));
                 
                 setValue("birth",`${fecha.slice(0,-1)}`)
             }

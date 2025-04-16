@@ -11,9 +11,9 @@ const NewItemForm = ({ handleButtonClick, itemInfo = null})=>{
 
     const date = new Date()
 
-    const {register, formState:{errors}, handleSubmit, reset, watch} = useForm({
+    const {register, formState:{errors}, handleSubmit, setValue, reset, watch} = useForm({
         defaultValues:{
-            date:        itemInfo ? itemInfo.date        : `${date.getDate()}/${date.getMonth()+1}/${date.getFullYear()} ${date.getHours()}:${date.getMinutes()}:00`,
+            date:        itemInfo ? itemInfo.date        : `${date.getDate()<10 ? "0" : ""}${date.getDate()}/${date.getMonth()+1 <10 ? "0" : ""}${date.getMonth()+1}/${date.getFullYear()} ${date.getHours()<10 ? "0" : ""}${date.getHours()}:${date.getMinutes()<10 ? "0" : ""}${date.getMinutes()}:00`,
             type:        itemInfo ? itemInfo.type : 0,
             description: itemInfo ? itemInfo.description : ""
         }
@@ -24,6 +24,68 @@ const NewItemForm = ({ handleButtonClick, itemInfo = null})=>{
         handleButtonClick()
     }
 
+    const agregarBarra = (e) => {
+        let fecha = watch("date")
+        //let largoCadena = fecha.length;
+        //let tecla = e.key
+        
+        
+
+        let string = fecha.replaceAll("/","")
+        string = string.replaceAll(":","")
+        string = string.replaceAll(" ","")
+        let cantChar = string.length
+
+        let fechaFinal=""
+
+        if (cantChar <= 2) {
+            fechaFinal = string.substring(0, cantChar);
+        } else if (cantChar <= 4) {
+            fechaFinal = string.substring(0, 2);
+            fechaFinal += "/";
+            fechaFinal += string.substring(2, cantChar);
+        } else if (cantChar <= 6) {
+            fechaFinal = string.substring(0, 2);
+            fechaFinal += "/";
+            fechaFinal += string.substring(2, 4);
+            fechaFinal += "/";
+            fechaFinal += string.substring(4, cantChar);
+        }else if (cantChar <= 8) {
+            fechaFinal = string.substring(0, 2);
+            fechaFinal += "/";
+            fechaFinal += string.substring(2, 4);
+            fechaFinal += "/";
+            fechaFinal += string.substring(4, 6);
+            fechaFinal += " ";
+            fechaFinal += string.substring(6, cantChar);
+        }else if (cantChar <= 10) {
+            fechaFinal = string.substring(0, 2);
+            fechaFinal += "/";
+            fechaFinal += string.substring(2, 4);
+            fechaFinal += "/";
+            fechaFinal += string.substring(4, 6);
+            fechaFinal += " ";
+            fechaFinal += string.substring(6, 8);
+            fechaFinal += ":";
+            fechaFinal += string.substring(8, cantChar);
+        }else if (cantChar >=11) {
+            fechaFinal = string.substring(0, 2);
+            fechaFinal += "/";
+            fechaFinal += string.substring(2, 4);
+            fechaFinal += "/";
+            fechaFinal += string.substring(4, 6);
+            fechaFinal += " ";
+            fechaFinal += string.substring(6, 8);
+            fechaFinal += ":";
+            fechaFinal += string.substring(8, 10);
+            fechaFinal += ":";
+            fechaFinal += string.substring(10, 12);
+        }
+
+
+    setValue("date",`${fechaFinal}`)
+    }
+
     const agregarItem =  ()=>{
         
         let newItem = {}
@@ -32,7 +94,7 @@ const NewItemForm = ({ handleButtonClick, itemInfo = null})=>{
         watch("type") != ""                    && (newItem.type = watch("type"))
         watch("description") != ""             && (newItem.description = watch("description"))
         
-        console.log(newItem);
+        //console.log(newItem);
         
         agregarItemContext(newItem)
         
@@ -75,7 +137,7 @@ const NewItemForm = ({ handleButtonClick, itemInfo = null})=>{
     
                     <div className={classes.gridDate}>
                         <label htmlFor="">Fecha</label>
-                        <input className={classes.inputs} type="text" placeholder='DD/MM/AAAA HH:MM:SS' {...register("date", {required: true, minLength: 10})} />
+                        <input className={classes.inputs} onKeyUp={agregarBarra} type="text" placeholder='DD/MM/AAAA HH:MM:SS' {...register("date", {required: true, minLength: 10})} />
                         {
                             errors.date?.type === "required" && (
                                 <p>Ingrese una fecha Valida DD/MM/AAAA</p>

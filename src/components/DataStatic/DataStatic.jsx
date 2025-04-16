@@ -11,7 +11,7 @@ const DataStatic = ({patient})=>{
                 <div className={classes.gridContainer}>
                     
                     <h1 className={classes.gridName}>{patient.lastname}, {patient.name} {patient.age &&(`(${patient.age} años)`)}</h1>
-                    <p className={classes.gridSocial_secure}><span>Obra </span>Social: {patient.social_security}</p>
+                    <p className={classes.gridSocial_secure}><span>Obra Social:</span> {patient.social_security}</p>
                     <p className={classes.gridDni}><span>DNI:</span> {patient.dni}</p>
                     <p className={classes.gridSocial_secure_number}><span>N° Afiliado:</span> {patient.social_security_number}</p>
                     <p className={classes.gridBirth}><span>Fecha de Nacimiento:</span> {patient.birth}</p>
